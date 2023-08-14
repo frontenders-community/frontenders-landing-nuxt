@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+:root {
+  --primary: #def243;
+  --secondary: #535fe1;
+  --secondary-light: #6c77e6;
+  --grey-light: #f5f5f5;
+}
+
+body {
+  font-family: 'Urbanist', sans-serif;
+}
+
+/* Section */
+section.alternate {
+  background-color: var(--grey-light);
+}
+
+.jumbotron-bg {
+  background: radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(222,242,67,1) 100%);
+}
+
+.section-subtitle {
+  letter-spacing: 4px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+/* Buttons */
+.cta {
+  background-color: var(--secondary);
+  color: #fff;
+  font-weight: 700;
+  border: 0;
+  transition: .3s;
+  cursor: pointer;
+}
+
+.cta:hover {
+  background-color: #231f40;
+  color: #fff;
+}
