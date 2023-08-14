@@ -1,3 +1,5 @@
+import { env } from "process";
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
@@ -18,7 +20,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     apiSecret: '123',
     public: {
-      apiBase: 'http://localhost:1337',
+      apiBase: 'https://api.airtable.com/v0/appRiYc0Ie8lVagoL',
+      airbaseApiToken: process.env.PUBLIC_AIRTABLES_TOKEN
     }
   }
 })
