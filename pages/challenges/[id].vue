@@ -38,22 +38,9 @@ const getImage = () => {
 
 <template>
   <div>
-    <section
-      v-if="challenge"
-      class="jumbotron jumbotron-bg section"
-    >
-      <p class="title is-2">
-        Challenge: {{ challenge.fields.title }}
-      </p>
-      <p class="subtitle is-4">
-        Tutti i dettagli
-      </p>
-    </section>
+    <AppBanner v-if="challenge" :title="`Challenge: ${challenge.fields.title}`" subtitle="Tutti i dettagli" />
 
-    <section
-      v-if="challenge"
-      class="section"
-    >
+    <section v-if="challenge" class="section">
       <div class="columns is-centered">
         <div class="column is-12-tablet is-8-desktop image-wrapper">
           <img :src="getImage()" :alt="challenge.fields.title">
@@ -64,11 +51,7 @@ const getImage = () => {
       <h2 class="title is-2">{{ challenge.fields.title }}</h2>
       <h4 class="subtitle is-4">{{ challenge.fields.description }}</h4>
       <div class="tags">
-        <div
-          v-for="topic in challenge.fields.lookupTopics"
-          :key="topic"
-          class="topic tag is-large is-rounded"
-        >
+        <div v-for="topic in challenge.fields.lookupTopics" :key="topic" class="topic tag is-large is-rounded">
           {{ topic }}
         </div>
       </div>
@@ -105,6 +88,7 @@ const getImage = () => {
   height: 100%;
   object-fit: cover;
 }
+
 .topic {
   background-color: var(--secondary);
   border: 3px solid transparent;

@@ -36,8 +36,8 @@ const activeChallenges = computed(() => {
     if (activeTopic.value === "Tutti") {
       return apiChallenges.value.records;
     } else {
-      return apiChallenges.value.records.filter(item => 
-        item.fields.topics.filter(topic => 
+      return apiChallenges.value.records.filter(item =>
+        item.fields.topics.filter(topic =>
           topic.id.toLowerCase() === activeTopic.value.toLowerCase()
         ).length > 0
       );
@@ -84,20 +84,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="section has-text-centered">
-    <h1 class="title is-1">Le nostre challenge</h1>
-    
-    <Filters  
-      :activeTopic="activeTopic"  
-      :topics="topics"  
-      @filter="handleFilter"
-    />
-    <ChallengeList
-      :items="activeChallenges"
-      :is-loading="pending"
-      :is-error="error !== null"
-    />
-  </section>
+  <AppSection centeredTitle hasHeader title="Le nostre challenge">
+    <template v-slot:content>
+
+      <Filters :activeTopic="activeTopic" :topics="topics" @filter="handleFilter" />
+      <ChallengeList :items="activeChallenges" :is-loading="pending" :is-error="error !== null" />
+    </template>
+  </AppSection>
 </template>
 
 <style scoped>
