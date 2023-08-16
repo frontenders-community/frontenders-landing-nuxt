@@ -5,6 +5,7 @@ import Features from '../components/home/Features.vue'
 import ChallengesPreview from '../components/home/ChallengesPreview.vue'
 import Stats from '../components/home/Stats.vue';
 import YoutubeBanner from '../components/home/YoutubeBanner.vue';
+import Testimonials from '../components/home/Testimonials.vue';
 
 useHead({
   title: "Frontenders",
@@ -44,8 +45,10 @@ const challenges = computed(() => {
     <Stats />
 
     <YoutubeBanner />
+
+    <Testimonials />
+
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
