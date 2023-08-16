@@ -1,17 +1,9 @@
 <script setup>
 import ChallengeCard from '../ChallengeCard.vue';
 import AppSection from '../AppSection.vue';
-import { computed } from 'vue';
 
-const runtimeConfig = useRuntimeConfig()
-const apiBase = runtimeConfig.public.apiBase;
-const { data } = await useFetch(`${apiBase}/api/challenges?populate=*`);
-
-const items = computed(() => {
-  if (data.value !== null) {
-    return data.value.data.slice(0, 2);
-  }
-  return [];
+const props = defineProps({
+  items: Array,
 })
 </script>
 

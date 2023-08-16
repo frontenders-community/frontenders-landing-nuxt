@@ -1,13 +1,9 @@
 <script setup>
 import { useRoute } from 'vue-router';
-import { onMounted, reactive } from 'vue';
 import { marked } from 'marked';
 
-const route = useRoute();
-const slug = route.params.id;
-
 useHead({
-  title: `Frontenders - ${slug}`,
+  title: `Frontenders`,
   meta: [
     {
       name: "description", content: "La community dedicata al frontend con challenge pazzesche"
@@ -15,62 +11,69 @@ useHead({
   ],
 })
 
-const runtimeConfig = useRuntimeConfig()
-const apiBase = runtimeConfig.public.apiBase;
+const route = useRoute();
+const slug = route.params.id;
 
-const state = reactive({
-  challenge: null,
+const runtimeConfig = useRuntimeConfig()
+const { apiBase, apiToken } = runtimeConfig.public;
+
+const { data } = await useFetch(`${apiBase}/challenges?filterByFormula=slug%3D%22${slug}%22`, {
+  headers: {
+    Authorization: `Bearer ${apiToken}`
+  }
 });
 
-function getImage() {
-  return `${apiBase}${state.challenge.attributes.img.data.attributes.formats.medium.url}`
-}
-
-function getTopics() {
-  return state.challenge.attributes.topics.data.map(item => item.attributes.name);
-}
-
-onMounted(async () => {
-  try {
-    const response = await fetch(`${apiBase}/api/challenges?filters[slug][$eq]=${slug}&populate=*`);
-    if (response.ok) {
-      const result = await response.json();
-      state.challenge = result.data[0];
-    } else {
-      throw new Error(`Error: status ${response.status}`);
-    }
-  } catch(err) {
-    throw new Error(`Error: failed to fetch`);
-  } 
+const challenge = computed(() => {
+  return data?.value.records[0];
 })
+
+const getImage = () => {
+  if (challenge.value && challenge.value.fields.img[0]) {
+    return challenge.value.fields.img[0].thumbnails.full.url;
+  } else {
+    return ``;
+  }
+}
 </script>
 
 <template>
   <div>
-    <section class="jumbotron jumbotron-bg section" v-if="state.challenge">
+    <section
+      v-if="challenge"
+      class="jumbotron jumbotron-bg section"
+    >
       <p class="title is-2">
-        Challenge: {{ state.challenge.attributes.title }}
+        Challenge: {{ challenge.fields.title }}
       </p>
       <p class="subtitle is-4">
         Tutti i dettagli
       </p>
     </section>
 
-    <section class="section" v-if="state.challenge">
+    <section
+      v-if="challenge"
+      class="section"
+    >
       <div class="columns is-centered">
         <div class="column is-12-tablet is-8-desktop image-wrapper">
-          <img :src="getImage()" alt="">
+          <img :src="getImage()" :alt="challenge.fields.title">
         </div>
       </div>
       <hr>
-      <div class="level tag is-large">{{ state.challenge.attributes.level }}</div>
-      <h2 class="title is-2">{{ state.challenge.attributes.title }}</h2>
-      <h4 class="subtitle is-4">{{ state.challenge.attributes.description }}</h4>
+      <div class="level tag is-large">{{ challenge.fields.level }}</div>
+      <h2 class="title is-2">{{ challenge.fields.title }}</h2>
+      <h4 class="subtitle is-4">{{ challenge.fields.description }}</h4>
       <div class="tags">
-        <div class="topic tag is-large is-rounded" v-for="topic in getTopics()">{{ topic }}</div>
+        <div
+          v-for="topic in challenge.fields.lookupTopics"
+          :key="topic"
+          class="topic tag is-large is-rounded"
+        >
+          {{ topic }}
+        </div>
       </div>
       <hr>
-      <p class="content is-size-5" v-html="marked(state.challenge.attributes.content)"></p>
+      <div class="content is-size-5" v-html="marked(challenge.fields.content)"></div>
     </section>
   </div>
 </template>

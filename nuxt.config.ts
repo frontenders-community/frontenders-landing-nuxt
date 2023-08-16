@@ -18,10 +18,9 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    apiSecret: '123',
     public: {
-      apiBase: `https://api.airtable.com/v0/${process.env.PUBLIC_AIRTABLE_BASE_ID}`,
-      airbaseApiToken: process.env.PUBLIC_AIRTABLE_TOKEN
+      apiBase: `https://api.airtable.com/v0/${process.env.PUBLIC_API_BASE_ID}`,
+      apiToken: process.env.PUBLIC_API_TOKEN
     }
   }
 })

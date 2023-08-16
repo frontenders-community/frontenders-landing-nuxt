@@ -1,44 +1,32 @@
 <script setup>
-import { computed } from "vue";
-
-const runtimeConfig = useRuntimeConfig()
-const apiBase = runtimeConfig.public.apiBase;
-const apiToken = runtimeConfig.public.airbaseApiToken;
-
 const props = defineProps({
+  topics: Array,
   activeTopic: String
 })
 const emit = defineEmits(['filter']);
-const { data } = await useFetch(`${apiBase}/filters`, {
-  headers: {
-    Authorization: `Bearer ${apiToken}`
-  }
-});
 
-
-
-function handleClick(topic) {
+const handleClick = (topic) => {
   emit('filter', topic);
 }
-
-const topics = computed(() => {
-  const result = data.value && data.value.records && data.value.records.map(item =>
-  ({
-    label: item.fields.label,
-    value: item.fields.value
-  })
-  );
-  return result;
-})
 </script>
 
 <template>
   <div class="topics tags is-flex is-justify-content-center">
-    <div class="topic tag is-large is-rounded" :class="{ active: activeTopic === 'Tutti' }" @click="handleClick('Tutti')">
+    <div
+      class="topic tag is-large is-rounded"
+      :class="{ active: activeTopic === 'Tutti' }"
+      @click="handleClick('Tutti')"
+    >
       Tutti
     </div>
-    <div v-if="topics" v-for="topic in topics" :key="topic.value" class="topic tag is-large is-rounded"
-      :class="{ active: activeTopic === topic.label }" @click="handleClick(topic.label)">
+    <div
+      v-if="topics"
+      v-for="topic in topics"
+      :key="topic.value"
+      class="topic tag is-large is-rounded"
+      :class="{ active: activeTopic === topic.label }"
+      @click="handleClick(topic.label)"
+    >
       {{ topic.label }}
     </div>
   </div>

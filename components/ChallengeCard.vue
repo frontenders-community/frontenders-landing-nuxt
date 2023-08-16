@@ -1,45 +1,36 @@
 <script setup>
-import { computed } from 'vue';
-
-const runtimeConfig = useRuntimeConfig()
-const apiBase = runtimeConfig.public.apiBase;
-
 const props = defineProps({
   item: Object
 })
 
-const challenge = computed(() => {
-  return props.item.attributes;
-})
-
-function getPreviewImg() {
-  return `${apiBase}${challenge.value.previewImg.data.attributes.formats.small.url}`
-}
-
-function getTopics() {
-  return challenge.value.topics.data.map(item => item.attributes.name);
+const getPreviewImg = () => {
+  if (props.item && props.item.fields.previewImg) {
+    return props.item.fields.previewImg[0].thumbnails.large.url;
+  } else {
+    return ``;
+  }
 }
 </script>
 
 <template>
   <div class="card">
-    <div class="card-image" v-if="challenge">
+    <div class="card-image" v-if="item">
       <figure class="image is-4by3">
-        <div class="badge-level tag is-medium">{{ challenge.level }}</div>
-        <img :src="getPreviewImg()" :alt="challenge.title">
+        <div class="badge-level tag is-medium">{{ item.fields.level }}</div>
+        <img :src="getPreviewImg()" :alt="item.fields.title">
       </figure>
     </div>
-    <div class="card-content" v-if="challenge">
+    <div class="card-content" v-if="item">
       <div class="media">
         <div class="media-content">
           <div class="level">
             <div class="level-left">
-              <router-link :to="`/challenges/${challenge.slug}`" class="title is-4">
-                {{ challenge.title }}
+              <router-link :to="`/challenges/${item.fields.slug}`" class="title is-4">
+                {{ item.fields.title }}
               </router-link>
             </div>
             <div class="level-right">
-              <a :href="challenge.githubUrl" target="_blank" class="button is-dark is-outlined">
+              <a :href="item.fields.githubUrl" target="_blank" class="button is-dark is-outlined">
                 <span class="icon is-small">
                   <i class="fa-brands fa-github"></i>
                 </span>
@@ -50,10 +41,10 @@ function getTopics() {
       </div>
 
       <div class="content">
-        <p>{{ challenge.description }}</p>
+        <p>{{ item.fields.description }}</p>
         <div class="tags mt-2">
           <div
-            v-for="topic in getTopics()"
+            v-for="topic in item.fields.lookupTopics"
             :key="topic"
             class="topic tag is-medium is-uppercase"
           >

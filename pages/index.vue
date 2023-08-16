@@ -14,6 +14,21 @@ useHead({
     }
   ],
 })
+
+const runtimeConfig = useRuntimeConfig()
+const { apiBase, apiToken } = runtimeConfig.public;
+const { data } = await useFetch(`${apiBase}/challenges`, {
+  headers: {
+    Authorization: `Bearer ${apiToken}`
+  }
+});
+
+const challenges = computed(() => {
+  if (data.value !== null) {
+    return data.value.records.slice(0, 2);
+  }
+  return [];
+})
 </script>
 
 <template>
@@ -24,7 +39,7 @@ useHead({
 
     <Features />
 
-    <ChallengesPreview />
+    <ChallengesPreview :items="challenges" />
 
     <Stats />
 
