@@ -37,8 +37,8 @@ const activeChallenges = computed(() => {
       return apiChallenges.value.records;
     } else {
       return apiChallenges.value.records.filter(item =>
-        item.fields.topics.filter(topic =>
-          topic.id.toLowerCase() === activeTopic.value.toLowerCase()
+        item.fields.topics.filter(topicId =>
+          topicId === activeTopicId.value
         ).length > 0
       );
     }
@@ -47,19 +47,20 @@ const activeChallenges = computed(() => {
   }
 })
 
+const activeTopicId = computed(() => {
+  return topics.value.filter(topic => topic.label === activeTopic.value)[0].id;
+})
+
 const topics = computed(() => {
-  const result = apiTopics.value?.records.map(item =>
-  ({
+  return apiTopics.value?.records.map(item => ({
     id: item.id,
     label: item.fields.label,
     value: item.fields.value
-  })
-  );
-  return result;
+  }));
 })
 
 const handleFilter = (newTopic) => {
-  topic.value = newTopic;
+  activeTopic.value = newTopic;
   updateQueryParams(newTopic);
 }
 
@@ -84,11 +85,18 @@ onMounted(() => {
 </script>
 
 <template>
-  <AppSection centeredTitle hasHeader title="Le nostre challenge">
+  <AppSection centeredTitle hasHeader title="Le nostre challenge" subtitle="Affila la tastiera">
     <template v-slot:content>
-
-      <Filters :activeTopic="activeTopic" :topics="topics" @filter="handleFilter" />
-      <ChallengeList :items="activeChallenges" :is-loading="pending" :is-error="error !== null" />
+      <Filters
+        :activeTopic="activeTopic"
+        :topics="topics"
+        @filter="handleFilter"
+      />
+      <ChallengeList
+        :items="activeChallenges"
+        :is-loading="pending"
+        :is-error="error !== null"
+      />
     </template>
   </AppSection>
 </template>

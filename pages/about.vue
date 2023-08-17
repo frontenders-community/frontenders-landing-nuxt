@@ -14,11 +14,13 @@ useHead({
 </script>
 
 <template>
-  <AppBanner title="Hello, Frontenders" subtitle="ecco perchè abbiamo deciso di creare una community" />
+  <div>
+    <AppBanner title="Hello, Frontenders" subtitle="ecco perchè abbiamo deciso di creare una community" />
 
-  <Description />
+    <Description />
 
-  <Instructors />
+    <Instructors />
+  </div>
 </template>
 
 <style scoped></style>

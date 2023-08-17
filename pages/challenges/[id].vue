@@ -103,6 +103,8 @@ const getImage = () => {
   border: 3px solid transparent;
   color: #333;
   font-weight: 700;
+  border-top-left-radius: 1.6rem;
+  border-bottom-right-radius: 1.6rem;
   cursor: pointer;
   transition: .3s;
 }

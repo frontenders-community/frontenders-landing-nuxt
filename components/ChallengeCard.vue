@@ -118,5 +118,7 @@ a.title:hover {
   color: #333;
   font-weight: 700;
   font-size: 1.2rem !important;
+  border-top-left-radius: 1.6rem;
+  border-bottom-right-radius: 1.6rem;
 }
 </style>

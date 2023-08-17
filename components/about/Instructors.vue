@@ -13,14 +13,14 @@ import AppSection from "../AppSection.vue";
                 <p class="mt-4 title is-4">Adriano Grimaldi</p>
                 <p class="subtitle is-5">FullStack Web Developer</p>
             </div>
-            <div class="column is-2 is-flex is-flex-direction-column is-align-items-center">
+            <div class="column is-3 is-flex is-flex-direction-column is-align-items-center">
                 <figure class="image is-128x128">
                     <img class="is-rounded" src="olga.jpeg">
                 </figure>
                 <p class="mt-4 title is-4">Olga Demina</p>
                 <p class="subtitle is-5">FullStack Web Developer</p>
             </div>
-            <div class="column is-2 is-flex is-flex-direction-column is-align-items-center">
+            <div class="column is-3 is-flex is-flex-direction-column is-align-items-center">
                 <figure class="image is-128x128">
 
                 </figure>
