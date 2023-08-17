@@ -3,10 +3,14 @@ const props = defineProps({
   topics: Array,
   activeTopic: String
 })
-const emit = defineEmits(['filter']);
+const emit = defineEmits(['filter', 'level']);
 
 const handleClick = (topic) => {
   emit('filter', topic);
+}
+
+const handleChange = (event) => {
+  emit('level', event.target.value);
 }
 </script>
 
@@ -14,8 +18,8 @@ const handleClick = (topic) => {
   <div class="topics tags is-flex is-justify-content-center">
     <div
       class="topic tag is-large is-rounded"
-      :class="{ active: activeTopic === 'Tutti' }"
-      @click="handleClick('Tutti')"
+      :class="{ active: activeTopic === 'all' }"
+      @click="handleClick('all')"
     >
       Tutti
     </div>
@@ -24,10 +28,18 @@ const handleClick = (topic) => {
       v-for="topic in topics"
       :key="topic.value"
       class="topic tag is-large is-rounded"
-      :class="{ active: activeTopic === topic.label }"
-      @click="handleClick(topic.label)"
+      :class="{ active: activeTopic === topic.value }"
+      @click="handleClick(topic.value)"
     >
       {{ topic.label }}
+    </div>
+    <div class="select mt-4">
+      <select @change="handleChange">
+        <option selected disabled>Filtro aggiuntivo</option>
+        <option value="beginner">Prima quelle facili</option>
+        <option value="advanced">Prima quelle difficili</option>
+        <option value="default">Fai fare al destino</option>
+      </select>
     </div>
   </div>
 </template>

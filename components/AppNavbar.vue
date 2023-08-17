@@ -24,7 +24,7 @@
           Chi siamo
         </NuxtLink>
 
-        <NuxtLink to="/challenges?topic=Tutti" class="navbar-item">
+        <NuxtLink to="/challenges?topic=all" class="navbar-item">
           Challenges
         </NuxtLink>
       </div>

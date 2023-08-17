@@ -12,6 +12,13 @@ useHead({
   ],
 })
 
+const LEVELS = {
+  default: Infinity,
+  beginner: 1,
+  intermediate: 2,
+  advanced: 3,
+}
+
 const router = useRouter();
 const route = useRoute();
 const runtimeConfig = useRuntimeConfig();
@@ -29,26 +36,41 @@ const { data: apiTopics } = await useFetch(`${apiBase}/topics`, {
   }
 });
 
-const activeTopic = ref("Tutti");
-
-const activeChallenges = computed(() => {
-  if (apiChallenges.value !== null) {
-    if (activeTopic.value === "Tutti") {
-      return apiChallenges.value.records;
-    } else {
-      return apiChallenges.value.records.filter(item =>
-        item.fields.topics.filter(topicId =>
-          topicId === activeTopicId.value
-        ).length > 0
-      );
-    }
-  } else {
-    return null;
-  }
+const state = reactive({
+  activeTopic: "all",
+  activeLevel: "normal",
 })
 
-const activeTopicId = computed(() => {
-  return topics.value.filter(topic => topic.label === activeTopic.value)[0].id;
+const activeChallenges = computed(() => {
+  let newItems = [];
+
+  if (apiChallenges.value === null) {
+    newItems = [];
+  }
+
+  if (state.activeTopic === "all") {
+    newItems = apiChallenges.value.records;
+  } else {
+    newItems = apiChallenges.value.records.filter(item => {
+      return item.fields.topics.find(topicId => topicId === activeTopicId.value);
+    });
+  }
+
+  if (state.activeLevel !== "normal") {
+    newItems = newItems.sort((a, b) => {
+      const levelA = a.fields.level.toLowerCase();
+      const levelB = b.fields.level.toLowerCase();
+      if (state.activeLevel === "beginner") {
+        return (LEVELS[levelA] || LEVELS.default) - (LEVELS[levelB] || LEVELS.default);
+      } else if (state.activeLevel === "advanced") {
+        return (LEVELS[levelB] || LEVELS.default) - (LEVELS[levelA] || LEVELS.default);
+      } else {
+        return Math.random() - 0.5;
+      }
+    });
+  }
+  
+  return newItems;
 })
 
 const topics = computed(() => {
@@ -59,9 +81,20 @@ const topics = computed(() => {
   }));
 })
 
+const activeTopicId = computed(() => {
+  if (state.activeTopic === 'all') {
+    return null;
+  }
+  return topics.value.find(topic => topic.value === state.activeTopic).id;
+})
+
 const handleFilter = (newTopic) => {
-  activeTopic.value = newTopic;
+  state.activeTopic = newTopic;
   updateQueryParams(newTopic);
+}
+
+const handleLevel = (newLevel) => {
+  state.activeLevel = newLevel;
 }
 
 const updateQueryParams = (newTopic) => {
@@ -77,9 +110,9 @@ const updateQueryParams = (newTopic) => {
 onMounted(() => {
   const queryTopic = route.query.topic;
   if (queryTopic) {
-    activeTopic.value = queryTopic;
+    state.activeTopic = queryTopic;
   } else {
-    updateQueryParams("Tutti");
+    updateQueryParams("all");
   }
 })
 </script>
@@ -88,9 +121,10 @@ onMounted(() => {
   <AppSection centeredTitle hasHeader title="Le nostre challenge" subtitle="Affila la tastiera">
     <template v-slot:content>
       <Filters
-        :activeTopic="activeTopic"
+        :activeTopic="state.activeTopic"
         :topics="topics"
         @filter="handleFilter"
+        @level="handleLevel"
       />
       <ChallengeList
         :items="activeChallenges"
