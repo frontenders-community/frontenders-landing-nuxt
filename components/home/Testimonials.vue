@@ -4,12 +4,33 @@ import { Splide, SplideSlide } from '@splidejs/vue-splide';
 // Default theme
 import '@splidejs/vue-splide/css';
 
-// or other themes
-import '@splidejs/vue-splide/css/skyblue';
-import '@splidejs/vue-splide/css/sea-green';
-
 // or only core styles
 import '@splidejs/vue-splide/css/core';
+
+const testimonials = [
+    {
+        text: "Ho apprezzato veramente molto le challenge. Sono state un'importante serie di stimoli ad imparare cose che non avrei facilmente appreso durante l'attivita' lavorativa",
+        name: "Cyber",
+        avatar: "https://bulma.io/images/placeholders/128x128.png"
+    },
+    {
+        text: "Ho apprezzato veramente molto le challenge. Sono state un'importante serie di stimoli ad imparare cose che non avrei facilmente appreso durante l'attivita' lavorativa",
+        name: "Cyber",
+        avatar: "https://bulma.io/images/placeholders/128x128.png"
+    },
+    {
+        text: "Ho apprezzato veramente molto le challenge. Sono state un'importante serie di stimoli ad imparare cose che non avrei facilmente appreso durante l'attivita' lavorativa",
+        name: "Cyber",
+        avatar: "https://bulma.io/images/placeholders/128x128.png"
+    },
+]
+
+const sliderOptions = {
+    type: 'loop',
+    arrows: false,
+    autoplay: true,
+    interval: 3000
+}
 
 </script>
 
@@ -21,44 +42,23 @@ import '@splidejs/vue-splide/css/core';
         </template>
 
         <template v-slot:rightColumn>
-
-            <Splide :options="{ rewind: true }" aria-label="My Favorite Images">
-                <SplideSlide>
+            <Splide :options="sliderOptions" aria-label="My Favorite Images" class="my-splide">
+                <SplideSlide v-for="  testimonial   in   testimonials  " :key="testimonial.name">
                     <div class="has-text-left ">
                         <img class="quote mb-6" src="quote.png" alt="quotation symbol">
                         <p class="feedback is-size-5">
-                            "Ho apprezzato veramente molto le challenge. Sono state un'importante serie di stimoli ad
-                            imparare cose
-                            che
-                            non avrei facilmente appreso durante l'attivita' lavorativa"
+                            {{ testimonial.text }}
                         </p>
 
                         <div class="feedback-author mt-4 is-flex is-align-items-center">
                             <figure class="image is-48x48">
-                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                                <img class="is-rounded" :src="testimonial.avatar">
                             </figure>
-                            <h5 class="has-text-weight-semibold ml-4">Cyber</h5>
+                            <h5 class="has-text-weight-semibold ml-4">{{ testimonial.name }}</h5>
                         </div>
                     </div>
                 </SplideSlide>
-                <SplideSlide>
-                    <div class="has-text-left ">
-                        <img class="quote mb-6" src="quote.png" alt="quotation symbol">
-                        <p class="feedback is-size-5">
-                            "Ho apprezzato veramente molto le challenge. Sono state un'importante serie di stimoli ad
-                            imparare cose
-                            che
-                            non avrei facilmente appreso durante l'attivita' lavorativa"
-                        </p>
 
-                        <div class="feedback-author mt-4 is-flex is-align-items-center">
-                            <figure class="image is-48x48">
-                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                            </figure>
-                            <h5 class="has-text-weight-semibold ml-4">Cyber</h5>
-                        </div>
-                    </div>
-                </SplideSlide>
             </Splide>
 
 
@@ -67,4 +67,53 @@ import '@splidejs/vue-splide/css/core';
     </AppSection>
 </template>
 
-<style scoped></style>
+<style>
+.my-splide .splide__pagination {
+    margin-top: 10rem;
+}
+
+.my-splide .splide__pagination__page {
+    position: relative;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.my-splide .splide__pagination__page::before {
+    border: 2px solid transparent;
+    border-radius: 100%;
+    content: "";
+    height: 0;
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s;
+    width: 0;
+}
+
+
+.my-splide .splide__pagination__page:hover {
+    background-color: var(--primary);
+}
+
+.my-splide.splide.is-focus-in .splide__pagination__page:focus {
+    outline: 0;
+}
+
+.my-splide .splide__pagination__page.is-active {
+    background: var(--secondary-light);
+    transform: scale(1.2);
+}
+
+.my-splide .splide__pagination__page.is-active::before {
+    border-color: var(--secondary);
+    height: 100%;
+    opacity: 1;
+    width: 200%;
+    height: 200%;
+    transform-origin: center;
+}
+</style>
