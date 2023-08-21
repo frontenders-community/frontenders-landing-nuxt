@@ -2,9 +2,7 @@
 const applyParallax = (e) => {
   document.querySelectorAll(".layer").forEach((layer) => {
     const speed = layer.getAttribute("data-speed");
-    console.log(speed);
     if (speed != 0) {
-      console.log('move');
       const x = (e.pageX * speed) / 10;
       const y = (e.pageY * speed) / 10;
       layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
