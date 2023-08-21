@@ -3,7 +3,7 @@ import AppSection from "../AppSection.vue";
 </script>
 
 <template>
-    <AppSection isTwoContentLayout>
+    <AppSection isAlternate isTwoContentLayout>
         <template v-slot:leftColumn>
             <img src="condivisione.png" alt="Frontenders">
         </template>

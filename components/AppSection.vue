@@ -20,6 +20,10 @@ const props = defineProps({
     type: Boolean,
     required: false,
   },
+  isGradient: {
+    type: Boolean,
+    required: false,
+  },
   isTwoContentLayout: {
     type: Boolean,
     required: false,
@@ -28,7 +32,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="section" :class="{ 'has-text-centered': hasHeader && centeredTitle, 'alternate': isAlternate }">
+  <section class="section"
+    :class="{ 'has-text-centered': hasHeader && centeredTitle, 'alternate': isAlternate, 'gradient': isGradient }">
     <div class="container">
       <template v-if="hasHeader">
         <h6 class="section-subtitle subtitle is-6 is-uppercase">{{ subtitle }}</h6>
@@ -53,4 +58,9 @@ const props = defineProps({
   </section>
 </template>
 
-<style></style>
+<style>
+.gradient {
+  background: radial-gradient(circle, rgba(246, 255, 180, 1) 0%, rgba(108, 119, 231, 1) 0%, rgba(251, 254, 227, 1) 100%);
+
+}
+</style>

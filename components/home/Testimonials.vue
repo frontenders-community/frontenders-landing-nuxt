@@ -42,7 +42,7 @@ const sliderOptions = {
         </template>
 
         <template v-slot:rightColumn>
-            <Splide :options="sliderOptions" aria-label="My Favorite Images" class="my-splide">
+            <Splide :options="sliderOptions" aria-label="My Favorite Images" class="home-splide">
                 <SplideSlide v-for="  testimonial   in   testimonials  " :key="testimonial.name">
                     <div class="has-text-left ">
                         <img class="quote mb-6" src="quote.png" alt="quotation symbol">
@@ -68,11 +68,11 @@ const sliderOptions = {
 </template>
 
 <style>
-.my-splide .splide__pagination {
-    margin-top: 10rem;
+.home-splide .splide__pagination {
+    bottom: -2.5rem;
 }
 
-.my-splide .splide__pagination__page {
+.home-splide .splide__pagination__page {
     position: relative;
     width: 10px;
     height: 10px;
@@ -80,7 +80,7 @@ const sliderOptions = {
     margin: 0 10px;
 }
 
-.my-splide .splide__pagination__page::before {
+.home-splide .splide__pagination__page::before {
     border: 2px solid transparent;
     border-radius: 100%;
     content: "";
@@ -95,20 +95,20 @@ const sliderOptions = {
 }
 
 
-.my-splide .splide__pagination__page:hover {
+.home-splide .splide__pagination__page:hover {
     background-color: var(--primary);
 }
 
-.my-splide.splide.is-focus-in .splide__pagination__page:focus {
+.home-splide.splide.is-focus-in .splide__pagination__page:focus {
     outline: 0;
 }
 
-.my-splide .splide__pagination__page.is-active {
+.home-splide .splide__pagination__page.is-active {
     background: var(--secondary-light);
     transform: scale(1.2);
 }
 
-.my-splide .splide__pagination__page.is-active::before {
+.home-splide .splide__pagination__page.is-active::before {
     border-color: var(--secondary);
     height: 100%;
     opacity: 1;

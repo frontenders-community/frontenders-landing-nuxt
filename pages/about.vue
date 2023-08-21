@@ -1,4 +1,5 @@
 <script setup>
+import Testimonials from '../components/about/Testimonials.vue';
 import Description from '../components/about/Description.vue'
 import Instructors from '../components/about/Instructors.vue'
 
@@ -20,6 +21,8 @@ useHead({
     <Description />
 
     <Instructors />
+
+    <Testimonials />
   </div>
 </template>
 
