@@ -34,6 +34,10 @@ const getImage = () => {
     return ``;
   }
 }
+
+const hasAttachment = () => {
+  return challenge.value.fields.attachment.length > 0;
+}
 </script>
 
 <template>
@@ -57,6 +61,11 @@ const getImage = () => {
       </div>
       <hr>
       <div class="content is-size-5" v-html="marked(challenge.fields.content)"></div>
+      <template v-if="hasAttachment">
+        <button v-for="attachment in challenge.fields.attachment" class="button is-info is-outlined has-text-weight-bold">
+          <a :href="attachment.url" target="_blank">Scarica allegato</a>
+        </button>
+      </template>
     </section>
   </div>
 </template>

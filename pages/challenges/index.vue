@@ -120,17 +120,21 @@ onMounted(() => {
 <template>
   <AppSection centeredTitle hasHeader title="Le nostre challenge" subtitle="Affila la tastiera">
     <template v-slot:content>
-      <Filters
-        :activeTopic="state.activeTopic"
-        :topics="topics"
-        @filter="handleFilter"
-        @level="handleLevel"
-      />
-      <ChallengeList
-        :items="activeChallenges"
-        :is-loading="pending"
-        :is-error="error !== null"
-      />
+      <div class="column is-12">
+        <Filters
+          :activeTopic="state.activeTopic"
+          :topics="topics"
+          @filter="handleFilter"
+          @level="handleLevel"
+        />
+      </div>
+      <div class="column is-12">
+        <ChallengeList
+          :items="activeChallenges"
+          :is-loading="pending"
+          :is-error="error !== null"
+        />
+      </div>
     </template>
   </AppSection>
 </template>

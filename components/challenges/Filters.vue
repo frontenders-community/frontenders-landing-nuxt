@@ -33,14 +33,14 @@ const handleChange = (event) => {
     >
       {{ topic.label }}
     </div>
-    <div class="select mt-4">
-      <select @change="handleChange">
-        <option selected disabled>Filtro aggiuntivo</option>
-        <option value="beginner">Prima quelle facili</option>
-        <option value="advanced">Prima quelle difficili</option>
-        <option value="default">Fai fare al destino</option>
-      </select>
-    </div>
+  </div>
+  <div class="select">
+    <select @change="handleChange">
+      <option selected disabled>Filtro aggiuntivo</option>
+      <option value="beginner">Prima quelle facili</option>
+      <option value="advanced">Prima quelle difficili</option>
+      <option value="default">Fai fare al destino</option>
+    </select>
   </div>
 </template>
 
