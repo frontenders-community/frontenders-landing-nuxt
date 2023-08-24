@@ -13,12 +13,12 @@ const sliderOptions = {
   arrows: false,
   autoplay: true,
   interval: 3000,
-  perPage: 3,
+  perPage: 1,
   rewind: true,
   gap: '2rem',
   breakpoints: {
     900: {
-      perPage: 2,
+      perPage: 1,
       gap: '.7rem',
     },
     480: {
