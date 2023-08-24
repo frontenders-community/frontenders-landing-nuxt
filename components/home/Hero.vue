@@ -1,4 +1,49 @@
 <script setup>
+const parallaxImages = [
+  {
+    url: "hero/computer.png",
+    speed: 0
+  },
+  {
+    url: "hero/sun.png",
+    speed: -0.5
+  },
+  {
+    url: "hero/window.png",
+    speed: -0.2
+  },
+  {
+    url: "hero/man-1.png",
+    speed: 0,
+    animated: true,
+    animationName: 'updown'
+  },
+  {
+    url: "hero/man-2.png",
+    speed: 0,
+    animated: true,
+    animationName: 'downup'
+  },
+  {
+    url: "hero/woman-1.png",
+    speed: 0,
+    animated: true,
+    animationName: 'leftright'
+  },
+  {
+    url: "hero/html.png",
+    speed: 0.5
+  },
+  {
+    url: "hero/css.png",
+    speed: 0.1
+  },
+  {
+    url: "hero/brakets.png",
+    speed: 0.2
+  },
+]
+
 const applyParallax = (e) => {
   document.querySelectorAll(".layer").forEach((layer) => {
     const speed = layer.getAttribute("data-speed");
@@ -13,7 +58,7 @@ const applyParallax = (e) => {
 </script>
 
 <template>
-  <section class="jumbotron-bg jumbotron section is-medium" @mousemove="applyParallax">
+  <section class="jumbotron-bg jumbotron section section-diagonal is-medium" @mousemove="applyParallax">
     <div class="container">
       <div class="columns">
         <div class="column is-6 is-flex is-flex-direction-column is-align-items-flex-start">
@@ -27,15 +72,8 @@ const applyParallax = (e) => {
         </div>
         <div class="column is-6">
           <div class="parallax-container">
-            <img src="hero/computer.png" alt="" class="layer layer-1" data-speed="0">
-            <img src="hero/sun.png" alt="" class="layer layer-2" data-speed="-0.5">
-            <img src="hero/window.png" alt="" class="layer layer-3" data-speed="-0.2">
-            <img src="hero/man-1.png" alt="" class="layer layer-4" data-speed="0">
-            <img src="hero/man-2.png" alt="" class="layer layer-5" data-speed="0">
-            <img src="hero/woman-1.png" alt="" class="layer layer-6" data-speed="0">
-            <img src="hero/html.png" alt="" class="layer layer-7" data-speed="0.5">
-            <img src="hero/css.png" alt="" class="layer layer-8" data-speed="0.1">
-            <img src="hero/brakets.png" alt="" class="layer layer-9" data-speed="0.2">
+            <img v-for="(img, index) in parallaxImages" :key="index" :src="img.url" alt="" class="layer"
+              :class="[img.animated ? 'animated' : '', `animation-${img.animationName}`]" :data-speed="img.speed">
           </div>
         </div>
       </div>
@@ -75,6 +113,66 @@ const applyParallax = (e) => {
 
   @media screen and (min-width: 1024px) {
     top: -30px;
+  }
+}
+
+.layer.animated {
+  animation: 3.5s linear infinite;
+}
+
+.layer.animated.animation-updown {
+  animation-name: upDown;
+  animation-delay: .6s;
+}
+
+.layer.animated.animation-downup {
+  animation-name: downUp;
+}
+
+.layer.animated.animation-leftright {
+  animation-name: leftRight;
+  animation-delay: .6s;
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(-10px);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes downUp {
+  0% {
+    transform: translateY(8px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(8px);
+  }
+}
+
+@keyframes leftRight {
+  0% {
+    transform: translateX(8px);
+  }
+
+  50% {
+    transform: translateX(-6px);
+  }
+
+  100% {
+    transform: translateX(8px);
   }
 }
 </style>

@@ -20,6 +20,10 @@ section.alternate {
   background: radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(222,242,67,1) 100%);
 }
 
+.section-diagonal {
+  clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%, 0% 100%);
+ } 
+
 .section-subtitle {
   letter-spacing: 4px;
   font-weight: 700;
