@@ -12,6 +12,22 @@ useHead({
     }
   ],
 })
+
+const runtimeConfig = useRuntimeConfig()
+const { apiBase, apiToken } = runtimeConfig.public;
+
+const { data: apiFeedbacks } = await useFetch(`${apiBase}/feedbacks`, {
+  headers: {
+    Authorization: `Bearer ${apiToken}`
+  }
+});
+
+const feedbacks = computed(() => {
+  if (apiFeedbacks.value !== null) {
+    return apiFeedbacks.value.records;
+  }
+  return [];
+})
 </script>
 
 <template>
@@ -22,7 +38,7 @@ useHead({
 
     <Instructors />
 
-    <Testimonials />
+    <Testimonials :items="feedbacks" />
   </div>
 </template>
 

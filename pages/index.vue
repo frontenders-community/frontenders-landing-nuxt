@@ -18,15 +18,27 @@ useHead({
 
 const runtimeConfig = useRuntimeConfig()
 const { apiBase, apiToken } = runtimeConfig.public;
-const { data } = await useFetch(`${apiBase}/challenges`, {
+const { data: apiChallenges } = await useFetch(`${apiBase}/challenges`, {
+  headers: {
+    Authorization: `Bearer ${apiToken}`
+  }
+});
+const { data: apiFeedbacks } = await useFetch(`${apiBase}/feedbacks`, {
   headers: {
     Authorization: `Bearer ${apiToken}`
   }
 });
 
 const challenges = computed(() => {
-  if (data.value !== null) {
-    return data.value.records.slice(0, 2);
+  if (apiChallenges.value !== null) {
+    return apiChallenges.value.records.slice(0, 2);
+  }
+  return [];
+})
+
+const feedbacks = computed(() => {
+  if (apiFeedbacks.value !== null) {
+    return apiFeedbacks.value.records.slice(0, 2);
   }
   return [];
 })
@@ -46,7 +58,7 @@ const challenges = computed(() => {
 
     <YoutubeBanner />
 
-    <Testimonials />
+    <Testimonials :items="feedbacks" />
 
   </div>
 </template>
