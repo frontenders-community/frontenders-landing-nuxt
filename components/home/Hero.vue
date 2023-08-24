@@ -20,7 +20,7 @@ const applyParallax = (e) => {
           <h1 class="title is-1">
             Frontenders
           </h1>
-          <h3 class="subtitle is-3">
+          <h3 class="subtitle is-3 is-size-5">
             Non è la solita community: challenge pazzesche, sessioni di coding e tanto studio!
           </h3>
           <button class="cta button is-large">Entra nella community</button>
@@ -43,19 +43,38 @@ const applyParallax = (e) => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .jumbotron {
   margin-top: 96px;
+  overflow: hidden;
 }
 
 .parallax-container {
   position: relative;
-  height: 400px;
+  height: 360px;
+
+  @media screen and (min-width: 520px) {
+    height: 440px;
+  }
+
+  @media screen and (min-width: 769px) {
+    height: 400px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: 350px;
+  }
 }
 
 .layer {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  right: 0px;
+  width: 90%;
+  max-width: 500px;
+
+  @media screen and (min-width: 1024px) {
+    top: -30px;
+  }
 }
 </style>
