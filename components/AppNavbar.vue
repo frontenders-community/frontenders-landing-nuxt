@@ -1,4 +1,12 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+
+const navbarOpen = ref(false);
+
+const toggleNavbar = () => {
+  navbarOpen.value = !navbarOpen.value;
+}
+</script>
 
 <template>
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
@@ -7,14 +15,22 @@
         <img src="logo.jpeg" />
       </figure>
 
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="myNavbar">
+      <a
+        role="button"
+        class="navbar-burger"
+        :class="{ 'is-active': navbarOpen }"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="myNavbar"
+        @click="toggleNavbar"
+      >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
 
-    <div id="myNavbar" class="navbar-menu">
+    <div id="myNavbar" class="navbar-menu" :class="{ 'is-active': navbarOpen }">
       <div class="navbar-start">
         <NuxtLink to="/" class="navbar-item">
           Home
