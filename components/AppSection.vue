@@ -64,7 +64,7 @@ const props = defineProps({
 
 <style>
 .gradient {
-  background: radial-gradient(circle, rgba(246, 255, 180, 1) 0%, rgba(108, 119, 231, 1) 0%, rgba(251, 254, 227, 1) 100%);
+  background: radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(222,242,67,1) 100%);
 
 }
 </style>

@@ -40,7 +40,7 @@ const sliderOptions = {
     title="Feedback dei nostri membri"
   >
     <template v-slot:content>
-      <div class="column is-12">
+      <div class="column is-12 is-two-thirds-desktop">
         <Splide :options="sliderOptions" aria-label="Frontenders feedbacks" class="about-splide">
           <SplideSlide v-for="feedback in items" :key="feedback.fields.user">
             <div class="testimonial-card-box" tabindex="-1" style="width: 100%; display: inline-block;">

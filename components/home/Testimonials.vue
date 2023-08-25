@@ -55,11 +55,15 @@ const sliderOptions = {
 </template>
 
 <style>
-.home-splide .splide__pagination {
-  bottom: -2.5rem;
+.splide {
+  padding: 40px 0;
 }
 
-.home-splide .splide__pagination__page {
+.splide__pagination {
+  bottom: 0rem;
+}
+
+.splide__pagination__page {
   position: relative;
   width: 10px;
   height: 10px;
@@ -67,7 +71,7 @@ const sliderOptions = {
   margin: 0 10px;
 }
 
-.home-splide .splide__pagination__page::before {
+.splide__pagination__page::before {
   border: 2px solid transparent;
   border-radius: 100%;
   content: "";
@@ -82,20 +86,20 @@ const sliderOptions = {
 }
 
 
-.home-splide .splide__pagination__page:hover {
+.splide__pagination__page:hover {
   background-color: var(--primary);
 }
 
-.home-splide.splide.is-focus-in .splide__pagination__page:focus {
+.splide.is-focus-in .splide__pagination__page:focus {
   outline: 0;
 }
 
-.home-splide .splide__pagination__page.is-active {
+.splide__pagination__page.is-active {
   background: var(--secondary-light);
   transform: scale(1.2);
 }
 
-.home-splide .splide__pagination__page.is-active::before {
+.splide__pagination__page.is-active::before {
   border-color: var(--secondary);
   height: 100%;
   opacity: 1;
