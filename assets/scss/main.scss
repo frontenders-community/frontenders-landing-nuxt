@@ -35,7 +35,7 @@ section.alternate {
 }
 
 /* Buttons */
-.cta {
+.button.cta {
   background-color: var(--secondary);
   color: #fff;
   font-weight: 700;
@@ -44,7 +44,7 @@ section.alternate {
   cursor: pointer;
 }
 
-.cta:hover {
+.button.cta:hover {
   background-color: #231f40;
   color: #fff;
 }
