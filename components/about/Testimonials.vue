@@ -32,7 +32,13 @@ const sliderOptions = {
 </script>
 
 <template>
-  <AppSection isGradient hasHeader centeredTitle title="Feedback dei nostri membri">
+  <AppSection 
+    isGradient
+    hasHeader
+    isMinHeight
+    centeredTitle
+    title="Feedback dei nostri membri"
+  >
     <template v-slot:content>
       <div class="column is-12">
         <Splide :options="sliderOptions" aria-label="Frontenders feedbacks" class="about-splide">

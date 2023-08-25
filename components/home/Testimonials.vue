@@ -19,8 +19,14 @@ const sliderOptions = {
 </script>
 
 <template>
-  <AppSection hasHeader centeredTitle :subtitle="'Testimonials'" title="La community che ti aiuta a crescere"
-    isTwoContentLayout>
+  <AppSection 
+    hasHeader
+    centeredTitle 
+    :subtitle="'Testimonials'"
+    title="La community che ti aiuta a crescere"
+    isTwoContentLayout
+    isMinHeight
+    >
     <template v-slot:leftColumn>
       <nuxt-img format="webp" loading="lazy" src="testimonials-img.jpg" alt="Una ragazza seduta davanti al computer" />
     </template>
@@ -36,7 +42,8 @@ const sliderOptions = {
 
             <div class="feedback-author mt-4 is-flex is-align-items-center">
               <figure class="image is-48x48">
-                <nuxt-img format="webp" loading="lazy" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="L'icona che rappresenta un utente" />
+                <nuxt-img format="webp" loading="lazy" class="is-rounded"
+                  src="https://bulma.io/images/placeholders/128x128.png" alt="L'icona che rappresenta un utente" />
               </figure>
               <h5 class="has-text-weight-semibold ml-4">{{ feedback.fields.user }}</h5>
             </div>

@@ -39,6 +39,7 @@ const topics = [
   <AppSection
     centeredTitle
     hasHeader
+    isMinHeight
     title="Main Topics"
     subtitle="La roadmap Frontend"
   >

@@ -24,6 +24,7 @@ const features = [
   <AppSection
     isAlternate
     isTwoContentLayout
+    isMinHeight
   >
     <template v-slot:leftColumn>
       <nuxt-img format="webp" loading="lazy" src="about-img1.png" alt="Un gruppo di persone seduti che parlano tra di loro" />

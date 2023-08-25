@@ -4,7 +4,13 @@ import AppSection from "../AppSection.vue";
 </script>
 
 <template>
-    <AppSection centeredTitle hasHeader title="I formatori (cioè noi)" subtitle="hello, world">
+    <AppSection 
+        centeredTitle 
+        hasHeader 
+        isMinHeight
+        title="I formatori (cioè noi)"
+        subtitle="hello, world"
+    >
         <template v-slot:content>
             <div class="column is-3 is-flex is-flex-direction-column is-align-items-center">
                 <figure class="image is-128x128">

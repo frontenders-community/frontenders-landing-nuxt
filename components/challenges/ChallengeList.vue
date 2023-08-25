@@ -19,7 +19,7 @@ const getResultInfo = () => {
 </script>
 
 <template>
-  <div>
+  <section class="min-height">
     <h4 class="title is-4">{{ getResultInfo() }}</h4>
     <div v-if="items" class="columns is-multiline">
       <div
@@ -32,7 +32,7 @@ const getResultInfo = () => {
     </div>
     <div v-if="isLoading" class="box">Caricamento...</div>
     <div v-if="isError" class="box">Si è verificato un errore. Riprovare.</div>
-  </div>
+  </section>
 </template>
 
 <style scoped></style>

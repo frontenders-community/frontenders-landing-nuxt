@@ -12,6 +12,10 @@ body {
 }
 
 /* Section */
+section.min-height {
+  min-height: 500px;
+}
+
 section.alternate {
   background-color: var(--grey-light);
 }

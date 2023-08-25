@@ -20,6 +20,10 @@ const props = defineProps({
     type: Boolean,
     required: false,
   },
+  isMinHeight: {
+    type: Boolean,
+    required: false,
+  },
   isGradient: {
     type: Boolean,
     required: false,
@@ -33,7 +37,7 @@ const props = defineProps({
 
 <template>
   <section class="section"
-    :class="{ 'has-text-centered': hasHeader && centeredTitle, 'alternate': isAlternate, 'gradient': isGradient }">
+    :class="{ 'has-text-centered': hasHeader && centeredTitle, 'alternate': isAlternate, 'gradient': isGradient, 'min-height': isMinHeight }">
     <div class="container">
       <template v-if="hasHeader">
         <h6 class="section-subtitle subtitle is-6 is-uppercase">{{ subtitle }}</h6>

@@ -3,7 +3,11 @@ import AppSection from "../AppSection.vue";
 </script>
 
 <template>
-    <AppSection isAlternate isTwoContentLayout>
+    <AppSection 
+        isAlternate 
+        isTwoContentLayout
+        isMinHeight
+    >
         <template v-slot:leftColumn>
             <nuxt-img format="webp" src="condivisione.png" alt="Frontenders" />
         </template>
