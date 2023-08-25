@@ -12,7 +12,7 @@ const toggleNavbar = () => {
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <figure class="image is-96x96">
-        <img src="logo.jpeg" />
+        <img src="/logo.jpeg" />
       </figure>
 
       <a
