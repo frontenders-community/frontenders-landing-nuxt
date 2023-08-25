@@ -93,6 +93,7 @@ const topics = [
 }
 .content {
   height: 70px;
+  overflow-y: scroll;
 }
 .content span {
   font-weight: 700;
