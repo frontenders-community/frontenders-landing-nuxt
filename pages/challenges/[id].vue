@@ -23,6 +23,8 @@ const { data } = await useFetch(`${apiBase}/challenges?filterByFormula=slug%3D%2
   }
 });
 
+const modalOpen = ref(false);
+
 const challenge = computed(() => {
   return data?.value.records[0];
 })
@@ -38,6 +40,10 @@ const getImage = () => {
 const hasAttachment = () => {
   return challenge.value.fields.attachment.length > 0;
 }
+
+const toggleModal = () => {
+  modalOpen.value = !modalOpen.value;
+}
 </script>
 
 <template>
@@ -46,8 +52,8 @@ const hasAttachment = () => {
 
     <section v-if="challenge" class="section">
       <div class="columns is-centered">
-        <div class="column is-12-tablet is-8-desktop image-wrapper">
-          <img :src="getImage()" :alt="challenge.fields.title">
+        <div class="column is-12-tablet is-8-desktop image-wrapper" @click="toggleModal">
+          <img :src="getImage()" :alt="challenge.fields.title" />
         </div>
       </div>
       <hr>
@@ -67,6 +73,14 @@ const hasAttachment = () => {
         </button>
       </template>
     </section>
+
+    <div v-if="modalOpen" class="modal" :class="{ 'is-active': modalOpen }">
+      <div class="modal-background"></div>
+      <div class="modal-content">
+        <img :src="getImage()" :alt="challenge.fields.title">
+      </div>
+      <button class="modal-close is-large" aria-label="close" @click="toggleModal"></button>
+    </div>
   </div>
 </template>
 
