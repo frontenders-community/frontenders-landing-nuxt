@@ -47,7 +47,7 @@ const toggleNavbar = () => {
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <button class="cta button is-medium">Unisciti a noi</button>
+          <a href="https://discord.gg/ZdfWFBMw8z" target="_blank" class="cta button is-medium">Unisciti a noi</a>
         </div>
       </div>
     </div>

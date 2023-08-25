@@ -75,7 +75,7 @@ const applyParallax = (e) => {
             <span class="title is-1">Frontenders</span><br>
             <span class="subtitle is-3">Non è la solita community: challenge pazzesche, sessioni di coding e tanto studio!</span>
           </h1>
-          <button class="cta button is-medium">Entra nella community</button>
+          <a href="https://discord.gg/ZdfWFBMw8z" target="_blank" class="cta button is-medium">Entra nella community</a>
         </div>
         <div class="column is-6 is-hidden-mobile">
           <div class="parallax-container">
