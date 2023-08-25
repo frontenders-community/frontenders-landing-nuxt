@@ -54,6 +54,7 @@ const toggleModal = () => {
       <div class="columns is-centered">
         <div class="column is-12-tablet is-8-desktop image-wrapper" @click="toggleModal">
           <img :src="getImage()" :alt="challenge.fields.title" />
+          <p class="is-size-4 has-font-weight-bold">Clicca per aprire</p>
         </div>
       </div>
       <hr>
@@ -94,6 +95,7 @@ const toggleModal = () => {
   height: 400px;
   border-radius: 12px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .image-wrapper::after {
@@ -110,6 +112,22 @@ const toggleModal = () => {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.image-wrapper p {
+  display: none;
+  background-color: #fff;
+  color: #333;
+  padding: 6px;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+}
+
+.image-wrapper:hover p {
+  display: block;
 }
 
 .topic {
