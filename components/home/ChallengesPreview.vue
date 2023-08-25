@@ -25,7 +25,7 @@ const props = defineProps({
     </template>
 
     <template v-slot:cta>
-      <NuxtLink to="/challenges?topic=all" class="cta button is-large">
+      <NuxtLink to="/challenges?topic=all" class="cta button is-medium">
         <span>Scopri tutte le challenge</span>
         <span class="icon is-small">
           <i class="fa-solid fa-chevron-right"></i>

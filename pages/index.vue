@@ -59,7 +59,6 @@ const feedbacks = computed(() => {
     <YoutubeBanner />
 
     <Testimonials :items="feedbacks" />
-
   </div>
 </template>
 

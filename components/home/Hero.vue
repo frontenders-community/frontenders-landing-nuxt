@@ -60,17 +60,17 @@ const applyParallax = (e) => {
 <template>
   <section class="jumbotron-bg jumbotron section section-diagonal is-medium" @mousemove="applyParallax">
     <div class="container">
-      <div class="columns">
+      <div class="columns is-vcentered">
         <div class="column is-6 is-flex is-flex-direction-column is-align-items-flex-start">
           <h1 class="title is-1">
             Frontenders
           </h1>
-          <h3 class="subtitle is-3 is-size-5">
+          <h3 class="subtitle is-3">
             Non è la solita community: challenge pazzesche, sessioni di coding e tanto studio!
           </h3>
-          <button class="cta button is-large">Entra nella community</button>
+          <button class="cta button is-medium">Entra nella community</button>
         </div>
-        <div class="column is-6">
+        <div class="column is-6 is-hidden-mobile">
           <div class="parallax-container">
             <img v-for="(img, index) in parallaxImages" :key="index" :src="img.url" alt="" class="layer"
               :class="[img.animated ? 'animated' : '', `animation-${img.animationName}`]" :data-speed="img.speed">
