@@ -26,7 +26,7 @@ const features = [
     isTwoContentLayout
   >
     <template v-slot:leftColumn>
-      <img src="about-img1.png" alt="">
+      <nuxt-img format="webp" loading="lazy" src="about-img1.png" alt="Un gruppo di persone seduti che parlano tra di loro" />
     </template>
     <template v-slot:rightColumn>
       <h6 class="section-subtitle subtitle is-6 is-uppercase">Chi siamo</h6>
@@ -39,7 +39,7 @@ const features = [
       >
         <figure class="media-left">
           <span class="about-icon">
-            <img :src="feature.icon" :alt="feature.text">
+            <nuxt-img format="webp" loading="lazy" :src="feature.icon" :alt="feature.text" />
           </span>
         </figure>
         <div class="media-content">

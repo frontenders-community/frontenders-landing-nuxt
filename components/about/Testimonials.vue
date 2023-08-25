@@ -40,7 +40,7 @@ const sliderOptions = {
             <div class="testimonial-card-box" tabindex="-1" style="width: 100%; display: inline-block;">
               <div class="inner">
                 <div class="client-info">
-                  <div class="thumbnail"><img src="https://bulma.io/images/placeholders/128x128.png" alt="User Placeholder"></div>
+                  <div class="thumbnail"><img src="https://bulma.io/images/placeholders/128x128.png" alt="L'icona che rappresenta utente"></div>
                   <div class="content">
                     <h6 class="title">{{ feedback.fields.user }}</h6>
                   </div>

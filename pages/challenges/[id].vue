@@ -2,15 +2,6 @@
 import { useRoute } from 'vue-router';
 import { marked } from 'marked';
 
-useHead({
-  title: `Frontenders`,
-  meta: [
-    {
-      name: "description", content: "La community dedicata al frontend con challenge pazzesche"
-    }
-  ],
-})
-
 const route = useRoute();
 const slug = route.params.id;
 
@@ -27,6 +18,15 @@ const modalOpen = ref(false);
 
 const challenge = computed(() => {
   return data?.value.records[0];
+})
+
+useHead({
+  title: `Frontenders - ${challenge.value.fields.title}`,
+  meta: [
+    {
+      name: "description", content: "La community dedicata al frontend con challenge pazzesche"
+    }
+  ],
 })
 
 const getImage = () => {

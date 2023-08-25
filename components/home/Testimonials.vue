@@ -22,21 +22,21 @@ const sliderOptions = {
   <AppSection hasHeader centeredTitle :subtitle="'Testimonials'" title="La community che ti aiuta a crescere"
     isTwoContentLayout>
     <template v-slot:leftColumn>
-      <img src="testimonials-img.jpg" alt="">
+      <nuxt-img format="webp" loading="lazy" src="testimonials-img.jpg" alt="Una ragazza seduta davanti al computer" />
     </template>
 
     <template v-slot:rightColumn>
       <Splide v-if="items" :options="sliderOptions" aria-label="Frontenders feedbacks" class="home-splide">
         <SplideSlide v-for="feedback in items" :key="feedback.fields.user">
           <div class="has-text-left ">
-            <img class="quote mb-6" src="quote.png" alt="quotation symbol">
+            <nuxt-img format="webp" loading="lazy" class="quote mb-6" src="quote.png" alt="quotation symbol" />
             <p class="feedback is-size-5">
               {{ feedback.fields.content }}
             </p>
 
             <div class="feedback-author mt-4 is-flex is-align-items-center">
               <figure class="image is-48x48">
-                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                <nuxt-img format="webp" loading="lazy" class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png" alt="L'icona che rappresenta un utente" />
               </figure>
               <h5 class="has-text-weight-semibold ml-4">{{ feedback.fields.user }}</h5>
             </div>

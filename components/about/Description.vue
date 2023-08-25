@@ -5,7 +5,7 @@ import AppSection from "../AppSection.vue";
 <template>
     <AppSection isAlternate isTwoContentLayout>
         <template v-slot:leftColumn>
-            <img src="condivisione.png" alt="Frontenders">
+            <nuxt-img format="webp" src="condivisione.png" alt="Frontenders" />
         </template>
 
         <template v-slot:rightColumn>
