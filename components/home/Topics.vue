@@ -3,32 +3,32 @@ import AppSection from '../AppSection.vue';
 
 const topics = [
   {
-    icon: "fa-brands fa-html5 fa-2x",
+    icon: "html5",
     name: "HTML",
     description: "Semantica, tag e attributi non saranno più un mistero"
   },
   {
-    icon: "fa-brands fa-css3-alt fa-2x",
+    icon: "css3",
     name: "CSS",
     description: "Da display a flex, fino alle grid, un viaggio con stile"
   },
   {
-    icon: "fa-brands fa-js fa-2x",
+    icon: "js",
     name: "JS",
     description: "Come si gestisce l'interazione dell'utente?"
   },
   {
-    icon: "fa-brands fa-vuejs fa-2x",
+    icon: "vuejs",
     name: "Vue",
     description: "Il framework più amato da... beh, da noi!"
   },
   {
-    icon: "fa-brands fa-react fa-2x",
+    icon: "react",
     name: "React",
     description: "Framework di casa Meta: scopri tutti i segreti"
   },
   {
-    icon: "fa-brands fa-angular fa-2x",
+    icon: "angular",
     name: "Angular",
     description: "Da mamma Google il monolitico per eccellenza"
   },
@@ -53,7 +53,7 @@ const topics = [
           <article class="media">
             <div class="media-left">
               <span class="icon is-large">
-                <i :class="topic.icon"></i>
+                <img :src="`/icons/${topic.icon}.svg`" :alt="topic.name">
               </span>
             </div>
             <div class="media-content">
@@ -85,11 +85,11 @@ const topics = [
 .box:hover .content {
   color: #fff;
 }
-.box:hover span.icon {
-  background-color: var(--secondary-light);
+.box:hover span.img {
+  /* background-color: var(--secondary-light); */
 }
-.box:hover i {
-  color: #fff;
+.box:hover img {
+  fill: #fff;
 }
 .content {
   height: 70px;

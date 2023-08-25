@@ -79,8 +79,18 @@ const applyParallax = (e) => {
         </div>
         <div class="column is-6 is-hidden-mobile">
           <div class="parallax-container">
-            <nuxt-img format="webp" v-for="(img, index) in parallaxImages" :key="index" :src="img.url" :alt="img.alt" class="layer"
-              :class="[img.animated ? 'animated' : '', `animation-${img.animationName}`]" :data-speed="img.speed" />
+            <nuxt-img
+              v-for="(img, index) in parallaxImages" 
+              :key="index" :src="img.url"
+              format="webp"
+              preload
+              :alt="img.alt"
+              class="layer"
+              :class="[
+                img.animated ? 'animated' : '',
+                `animation-${img.animationName}`
+              ]"
+              :data-speed="img.speed" />
           </div>
         </div>
       </div>

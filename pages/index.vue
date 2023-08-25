@@ -18,12 +18,13 @@ useHead({
 
 const runtimeConfig = useRuntimeConfig()
 const { apiBase, apiToken } = runtimeConfig.public;
-const { data: apiChallenges } = await useFetch(`${apiBase}/challenges`, {
+
+const { data: apiChallenges } = useFetch(`${apiBase}/challenges`, {
   headers: {
     Authorization: `Bearer ${apiToken}`
   }
 });
-const { data: apiFeedbacks } = await useFetch(`${apiBase}/feedbacks`, {
+const { data: apiFeedbacks } = useFetch(`${apiBase}/feedbacks`, {
   headers: {
     Authorization: `Bearer ${apiToken}`
   }
