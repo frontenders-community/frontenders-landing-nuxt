@@ -13,7 +13,7 @@ useHead({
     {
       name: "description", content: "La community dedicata al frontend con challenge pazzesche"
     }
-  ],
+  ]
 })
 
 const runtimeConfig = useRuntimeConfig()
