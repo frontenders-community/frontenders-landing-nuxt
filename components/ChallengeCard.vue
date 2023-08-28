@@ -17,7 +17,12 @@ const getPreviewImg = () => {
     <div class="card-image" v-if="item">
       <figure class="image is-4by3">
         <div class="badge-level tag is-medium">{{ item.fields.level }}</div>
-        <img :src="getPreviewImg()" :alt="item.fields.title">
+        <nuxt-img
+          format="webp"
+          loading="lazy"
+          :src="getPreviewImg()"
+          :alt="item.fields.title"
+        />
       </figure>
     </div>
     <div class="card-content" v-if="item">
