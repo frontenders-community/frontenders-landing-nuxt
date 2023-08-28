@@ -85,6 +85,9 @@ const sliderOptions = {
   width: 0;
 }
 
+.splide:not(.is-overflow) .splide__pagination {
+  display: unset;
+}
 
 .splide__pagination__page:hover {
   background-color: var(--primary);
