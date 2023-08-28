@@ -22,9 +22,22 @@ const { data: apiFeedbacks } = await useFetch(`${apiBase}/feedbacks`, {
   }
 });
 
+const { data: apiAuthors } = await useFetch(`${apiBase}/authors`, {
+  headers: {
+    Authorization: `Bearer ${apiToken}`
+  }
+})
+
 const feedbacks = computed(() => {
   if (apiFeedbacks.value !== null) {
     return apiFeedbacks.value.records;
+  }
+  return [];
+})
+
+const authors = computed(() => {
+  if (apiAuthors.value !== null) {
+    return apiAuthors.value.records;
   }
   return [];
 })
@@ -36,7 +49,7 @@ const feedbacks = computed(() => {
 
     <Description />
 
-    <Instructors />
+    <Instructors :authors="authors"/>
 
     <Testimonials :items="feedbacks" />
   </div>

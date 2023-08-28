@@ -83,7 +83,7 @@ const applyParallax = (e) => {
               v-for="(img, index) in parallaxImages" 
               :key="index" :src="img.url"
               format="webp"
-              quality="80"
+              quality="100"
               preload
               :alt="img.alt"
               class="layer"
