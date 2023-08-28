@@ -7,17 +7,19 @@ import Stats from '../components/home/Stats.vue';
 import YoutubeBanner from '../components/home/YoutubeBanner.vue';
 import Testimonials from '../components/home/Testimonials.vue';
 
-useHead({
+const runtimeConfig = useRuntimeConfig()
+const { apiBase, apiToken, publicUrl } = runtimeConfig.public;
+
+useSeoMeta({
+  lang: "IT",
   title: "Frontenders",
-  meta: [
-    {
-      name: "description", content: "La community dedicata al frontend con challenge pazzesche"
-    }
-  ]
+  ogTitle: "Frontenders",
+  description: "La community dedicata al frontend con challenge pazzesche",
+  ogDescription: "La community dedicata al frontend con challenge pazzesche",
+  icon: `${publicUrl}/favicon.ico`,
+  ogImage: `${publicUrl}/favicon.ico`,
 })
 
-const runtimeConfig = useRuntimeConfig()
-const { apiBase, apiToken } = runtimeConfig.public;
 
 const { data: apiChallenges } = useFetch(`${apiBase}/challenges`, {
   headers: {

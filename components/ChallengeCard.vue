@@ -23,16 +23,16 @@ const getPreviewImg = () => {
     <div class="card-content" v-if="item">
       <div class="media">
         <div class="media-content">
-          <div class="level">
-            <div class="level-left">
+          <div class="columns">
+            <div class="column is-8 has-text-left">
               <router-link :to="`/challenges/${item.fields.slug}`" class="title is-4">
                 {{ item.fields.title }}
               </router-link>
             </div>
-            <div class="level-right">
+            <div class="column is-4 has-text-right">
               <a :href="item.fields.githubUrl" target="_blank" class="button is-dark is-outlined">
                 <span class="icon is-small">
-                  <i class="fa-brands fa-github"></i>
+                  <font-awesome-icon :icon="['fab', 'github']" />
                 </span>
               </a>
             </div>

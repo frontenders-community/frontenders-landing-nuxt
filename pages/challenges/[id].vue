@@ -6,7 +6,7 @@ const route = useRoute();
 const slug = route.params.id;
 
 const runtimeConfig = useRuntimeConfig()
-const { apiBase, apiToken } = runtimeConfig.public;
+const { apiBase, apiToken, publicUrl } = runtimeConfig.public;
 
 const { data } = await useFetch(`${apiBase}/challenges?filterByFormula=slug%3D%22${slug}%22`, {
   headers: {
@@ -20,13 +20,15 @@ const challenge = computed(() => {
   return data?.value.records[0];
 })
 
-useHead({
+
+useSeoMeta({
+  lang: "IT",
   title: `Frontenders - ${challenge.value.fields.title}`,
-  meta: [
-    {
-      name: "description", content: "La community dedicata al frontend con challenge pazzesche"
-    }
-  ],
+  ogTitle: `Frontenders - ${challenge.value.fields.title}`,
+  description: "La community dedicata al frontend con challenge pazzesche",
+  ogDescription: "La community dedicata al frontend con challenge pazzesche",
+  icon: `${publicUrl}/favicon.ico`,
+  ogImage: `${publicUrl}/favicon.ico`,
 })
 
 const getImage = () => {

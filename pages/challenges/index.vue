@@ -3,15 +3,6 @@ import { computed, onMounted, ref } from 'vue';
 import ChallengeList from '../../components/challenges/ChallengeList.vue'
 import Filters from '../../components/challenges/Filters.vue'
 
-useHead({
-  title: "Frontenders - Le challenge",
-  meta: [
-    {
-      name: "description", content: "La community dedicata al frontend con challenge pazzesche"
-    }
-  ],
-})
-
 const LEVELS = {
   default: Infinity,
   beginner: 1,
@@ -22,7 +13,17 @@ const LEVELS = {
 const router = useRouter();
 const route = useRoute();
 const runtimeConfig = useRuntimeConfig();
-const { apiBase, apiToken } = runtimeConfig.public;
+const { apiBase, apiToken, publicUrl } = runtimeConfig.public;
+
+useSeoMeta({
+  lang: "IT",
+  title: "Frontenders - Le challenge",
+  ogTitle: "Frontenders - Le challenge",
+  description: "La community dedicata al frontend con challenge pazzesche",
+  ogDescription: "La community dedicata al frontend con challenge pazzesche",
+  icon: `${publicUrl}/favicon.ico`,
+  ogImage: `${publicUrl}/favicon.ico`,
+})
 
 const { data: apiChallenges, pending, error } = await useFetch(`${apiBase}/challenges`, {
   headers: {

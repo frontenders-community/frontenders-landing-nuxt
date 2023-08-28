@@ -4,17 +4,18 @@ import Description from '../components/about/Description.vue'
 import Instructors from '../components/about/Instructors.vue'
 
 
-useHead({
-  title: "Frontenders - Chi siamo",
-  meta: [
-    {
-      name: "description", content: "La community dedicata al frontend con challenge pazzesche"
-    }
-  ],
-})
-
 const runtimeConfig = useRuntimeConfig()
-const { apiBase, apiToken } = runtimeConfig.public;
+const { apiBase, apiToken, publicUrl } = runtimeConfig.public;
+
+useSeoMeta({
+  lang: "IT",
+  title: "Frontenders - Chi siamo",
+  ogTitle: "Frontenders - Chi siamo",
+  description: "La community dedicata al frontend con challenge pazzesche",
+  ogDescription: "La community dedicata al frontend con challenge pazzesche",
+  icon: `${publicUrl}/favicon.ico`,
+  ogImage: `${publicUrl}/favicon.ico`,
+})
 
 const { data: apiFeedbacks } = await useFetch(`${apiBase}/feedbacks`, {
   headers: {

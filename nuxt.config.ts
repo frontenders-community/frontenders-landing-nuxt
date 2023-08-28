@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     public: {
       apiBase: `https://api.airtable.com/v0/${process.env.PUBLIC_API_BASE_ID}`,
       apiToken: process.env.PUBLIC_API_TOKEN,
+      publicUrl: process.env.PUBLIC_URL,
     },
   },
   modules: [
