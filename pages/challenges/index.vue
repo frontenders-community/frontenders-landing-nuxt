@@ -25,13 +25,13 @@ useSeoMeta({
   ogImage: `${publicUrl}/favicon.ico`,
 })
 
-const { data: apiChallenges, pending, error } = await useFetch(`${apiBase}/challenges`, {
+const { data: apiChallenges, pending, error } = useFetch(`${apiBase}/challenges`, {
   headers: {
     Authorization: `Bearer ${apiToken}`
   }
 });
 
-const { data: apiTopics } = await useFetch(`${apiBase}/topics`, {
+const { data: apiTopics } = useFetch(`${apiBase}/topics`, {
   headers: {
     Authorization: `Bearer ${apiToken}`
   }
