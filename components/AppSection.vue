@@ -53,7 +53,7 @@ const props = defineProps({
         </div>
       </div>
 
-      <div class="columns is-centered is-vcentered is-multiline">
+      <div class="columns is-centered is-align-items-flex-start is-vcentered is-multiline">
         <slot name="content"></slot>
       </div>
 

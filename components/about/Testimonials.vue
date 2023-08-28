@@ -32,13 +32,7 @@ const sliderOptions = {
 </script>
 
 <template>
-  <AppSection 
-    isGradient
-    hasHeader
-    isMinHeight
-    centeredTitle
-    title="Feedback dei nostri membri"
-  >
+  <AppSection isGradient hasHeader isMinHeight centeredTitle title="Feedback dei nostri membri">
     <template v-slot:content>
       <div class="column is-12 is-two-thirds-desktop">
         <Splide :options="sliderOptions" aria-label="Frontenders feedbacks" class="about-splide">
@@ -46,7 +40,9 @@ const sliderOptions = {
             <div class="testimonial-card-box" tabindex="-1" style="width: 100%; display: inline-block;">
               <div class="inner">
                 <div class="client-info">
-                  <div class="thumbnail"><img src="https://bulma.io/images/placeholders/128x128.png" alt="L'icona che rappresenta utente"></div>
+                  <div class="thumbnail">
+                    <font-awesome-icon :icon="['far', 'user']" size="2x" color="#535fe1" :mask="['fas', 'circle']" />
+                  </div>
                   <div class="content">
                     <h6 class="title">{{ feedback.fields.user }}</h6>
                   </div>
@@ -107,5 +103,14 @@ const sliderOptions = {
 
 .testimonial-card-box .inner .description {
   margin-bottom: 22px;
+}
+.thumbnail {
+  background-color: var(--grey-light);
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
