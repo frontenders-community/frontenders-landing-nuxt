@@ -33,27 +33,23 @@ const topics = [
     description: "Da mamma Google il monolitico per eccellenza"
   },
 ]
+
+const hoverIndex = ref(null);
+
+const setHoverIndex = (index) => {
+  hoverIndex.value = index
+}
 </script>
 
 <template>
-  <AppSection
-    centeredTitle
-    hasHeader
-    isMinHeight
-    title="Main Topics"
-    subtitle="La roadmap Frontend"
-  >
+  <AppSection centeredTitle hasHeader isMinHeight title="Main Topics" subtitle="La roadmap Frontend">
     <template v-slot:content>
-      <div
-        v-for="topic in topics"
-        :key="topic.name" 
-        class="column is-4"
-      >
-        <div class="box has-text-left">
+      <div v-for="(topic, index) in topics" :key="topic.name" class="column is-4">
+        <div class="box has-text-left" @mouseover="setHoverIndex(index)" @mouseleave="setHoverIndex(null)">
           <article class="media">
             <div class="media-left">
               <span class="icon is-large">
-                <img :src="`/icons/${topic.icon}.svg`" :alt="topic.name">
+                <font-awesome-icon class="icon" :icon="['fab', topic.icon]" size="3x" :color="hoverIndex === index ? '#fff' :'#535fe1'" />
               </span>
             </div>
             <div class="media-content">
@@ -79,22 +75,20 @@ const topics = [
   box-shadow: none;
   cursor: pointer;
 }
+
 .box:hover {
   background-color: var(--secondary);
 }
+
 .box:hover .content {
   color: #fff;
 }
-.box:hover span.img {
-  /* background-color: var(--secondary-light); */
-}
-.box:hover img {
-  fill: #fff;
-}
+
 .content {
   height: 70px;
   overflow-y: scroll;
 }
+
 .content span {
   font-weight: 700;
   font-size: 1.2rem;
@@ -102,11 +96,5 @@ const topics = [
 
 .media {
   align-items: center;
-}
-span.icon {
-  background-color: #fff;
-}
-i {
-  color: var(--secondary-light);
 }
 </style>

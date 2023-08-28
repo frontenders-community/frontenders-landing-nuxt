@@ -1,6 +1,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ["~/assets/scss/main.scss", "bulma"],
+  css: [
+    "~/assets/scss/main.scss",
+    "bulma",
+    "@fortawesome/fontawesome-svg-core/styles.css",
+  ],
   app: {
     pageTransition: { name: "page", mode: "out-in" },
     layoutTransition: { name: "layout", mode: "out-in" },
