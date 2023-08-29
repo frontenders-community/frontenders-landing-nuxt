@@ -22,14 +22,14 @@ const sliderOptions = {
   <AppSection hasHeader centeredTitle :subtitle="'Testimonials'" title="La community che ti aiuta a crescere"
     isTwoContentLayout isMinHeight>
     <template v-slot:leftColumn>
-      <img loading="lazy" src="/testimonials-img.jpg" alt="Una ragazza seduta davanti al computer" />
+      <img loading="lazy" src="/testimonials-img.jpeg.webp" alt="Una ragazza seduta davanti al computer" />
     </template>
 
     <template v-slot:rightColumn>
       <Splide v-if="items" :options="sliderOptions" aria-label="Frontenders feedbacks" class="home-splide">
         <SplideSlide v-for="feedback in items" :key="feedback.fields.user">
           <div class="has-text-left ">
-            <img loading="lazy" class="quote mb-6" src="/quote.png" alt="quotation symbol" />
+            <img loading="lazy" class="quote mb-6" src="/quote.png.webp" alt="quotation symbol" />
             <p class="feedback is-size-5">
               {{ feedback.fields.content }}
             </p>

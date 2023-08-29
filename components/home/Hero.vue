@@ -1,53 +1,53 @@
 <script setup>
 const parallaxImages = [
   {
-    url: "hero/computer.png",
+    url: "hero/computer.png.webp",
     speed: 0,
     alt: "Computer"
   },
   {
-    url: "hero/sun.png",
+    url: "hero/sun.png.webp",
     speed: -0.5,
     alt: "Sole"
   },
   {
-    url: "hero/window.png",
+    url: "hero/window.png.webp",
     speed: -0.2,
     alt: "Finestra del browser"
   },
   {
-    url: "hero/man-1.png",
+    url: "hero/man-1.png.webp",
     speed: 0,
     animated: true,
     animationName: 'updown',
     alt: "Un uomo in piedi con un portatile in mano"
   },
   {
-    url: "hero/man-2.png",
+    url: "hero/man-2.png.webp",
     speed: 0,
     animated: true,
     animationName: 'downup',
     alt: "Un uomo che indica la finestra del browser"
   },
   {
-    url: "hero/woman-1.png",
+    url: "hero/woman-1.png.webp",
     speed: 0,
     animated: true,
     animationName: 'leftright',
     alt: "Una ragazza seduta con un computer portatile"
   },
   {
-    url: "hero/html.png",
+    url: "hero/html.png.webp",
     speed: 0.5,
     alt: "Logo di html"
   },
   {
-    url: "hero/css.png",
+    url: "hero/css.png.webp",
     speed: 0.1,
     alt: "Logo di css"
   },
   {
-    url: "hero/brakets.png",
+    url: "hero/brakets.png.webp",
     speed: 0.2,
     alt: "Parentesi html chiusa"
   },
@@ -73,7 +73,7 @@ const applyParallax = (e) => {
         <div class="column is-6 is-flex is-flex-direction-column is-align-items-flex-start">
           <h1 class="mb-6">
             <span class="title is-1">Frontenders</span><br>
-            <span class="subtitle is-3">Non è la solita community: challenge pazzesche, sessioni di coding e tanto studio!</span>
+            <span class="subtitle is-3">La community dedicata al frontend. Challenge pazzesche, sessioni di studio e tanta passione!</span>
           </h1>
           <a href="https://discord.gg/ZdfWFBMw8z" target="_blank" class="cta button is-medium">Entra nella community</a>
         </div>

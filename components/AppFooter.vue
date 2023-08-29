@@ -8,7 +8,7 @@
           href="https://www.linkedin.com/in/adriano-grimaldi-00403597/">Adriano Grimaldi</a> e <a
           href="https://www.linkedin.com/in/olga-demina-059019197/">Olga Demina</a>.
         <br />
-        Vuoi contattarci? Scrivi a hello@frontenders.dev
+        Vuoi contattarci? Scrivi a frontenders.community@gmail.com
       </p>
     </div>
   </footer>
