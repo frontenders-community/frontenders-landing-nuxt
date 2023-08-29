@@ -27,10 +27,8 @@ const features = [
     isMinHeight
   >
     <template v-slot:leftColumn>
-      <nuxt-img
+      <img
         class="features-img"
-        format="webp"
-        sizes="sm:100vw md:100vw lg:50vw"
         loading="lazy"
         src="about-img1.png"
         alt="Un gruppo di persone seduti che parlano tra di loro"
@@ -47,8 +45,7 @@ const features = [
       >
         <figure class="media-left">
           <span class="about-icon">
-            <nuxt-img
-              format="webp"
+            <img
               width="50"
               height="50"
               loading="lazy"
