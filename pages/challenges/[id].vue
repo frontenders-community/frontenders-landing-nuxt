@@ -60,8 +60,21 @@ const toggleModal = () => {
         </div>
       </div>
       <hr>
-      <div class="level tag is-large">{{ challenge.fields.level }}</div>
-      <h2 class="title is-2">{{ challenge.fields.title }}</h2>
+      <div class="level tag is-large">
+        {{ challenge.fields.level }}
+      </div>
+      <h2 class="title is-2 is-flex is-align-items-center">
+        <span>{{ challenge.fields.title }}</span>
+        <a
+          :href="challenge.fields.githubUrl"
+          target="_blank"
+          class="button is-dark is-outlined ml-3"
+        >
+          <span class="icon is-small">
+            <font-awesome-icon :icon="['fab', 'github']" />
+          </span>
+        </a>
+      </h2>
       <h4 class="subtitle is-4">{{ challenge.fields.description }}</h4>
       <div class="tags">
         <div v-for="topic in challenge.fields.lookupTopics" :key="topic" class="topic tag is-large is-rounded">

@@ -27,21 +27,10 @@ const getPreviewImg = () => {
     </div>
     <div class="card-content" v-if="item">
       <div class="media">
-        <div class="media-content">
-          <div class="columns">
-            <div class="column is-8 has-text-left">
-              <router-link :to="`/challenges/${item.fields.slug}`" class="title is-4">
-                {{ item.fields.title }}
-              </router-link>
-            </div>
-            <div class="column is-4 has-text-right">
-              <a :href="item.fields.githubUrl" target="_blank" class="button is-dark is-outlined">
-                <span class="icon is-small">
-                  <font-awesome-icon :icon="['fab', 'github']" />
-                </span>
-              </a>
-            </div>
-          </div>
+        <div class="media-content has-text-left">
+          <router-link :to="`/challenges/${item.fields.slug}`" class="title is-4">
+            {{ item.fields.title }}
+          </router-link>
         </div>
       </div>
 
@@ -79,6 +68,10 @@ figure {
   transition: .3s;
 }
 
+.card-image img {
+  object-fit: cover;
+}
+
 .card:hover img {
   scale: 1.1;
 }
@@ -105,7 +98,7 @@ a.title {
 
 .content p {
   text-align: left;
-  height: 120px;
+  height: 150px;
   font-size: 1.2rem;
 }
 
