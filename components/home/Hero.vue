@@ -87,7 +87,7 @@ const applyParallax = (e) => {
               preload
               :alt="img.alt"
               class="layer"
-              width="332px"
+              width="500px"
               :data-speed="img.speed" />
           </div>
         </div>
