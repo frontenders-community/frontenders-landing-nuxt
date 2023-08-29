@@ -28,6 +28,7 @@ const features = [
   >
     <template v-slot:leftColumn>
       <nuxt-img
+        class="features-img"
         format="webp"
         sizes="sm:100vw md:100vw lg:50vw"
         loading="lazy"
@@ -78,6 +79,10 @@ const features = [
 </template>
 
 <style scoped>
+.features-img {
+  min-width: 300px;
+  min-height: auto;
+}
 .about-icon {
   display: inline-block;
   width: 50px;
