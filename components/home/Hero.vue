@@ -1,53 +1,53 @@
 <script setup>
 const parallaxImages = [
   {
-    url: "/hero/computer.png",
+    url: "/hero/computer.png.webp",
     speed: 0,
     alt: "Computer"
   },
   {
-    url: "/hero/sun.png",
+    url: "/hero/sun.png.webp",
     speed: -0.5,
     alt: "Sole"
   },
   {
-    url: "/hero/window.png",
+    url: "/hero/window.png.webp",
     speed: -0.2,
     alt: "Finestra del browser"
   },
   {
-    url: "/hero/man-1.png",
+    url: "/hero/man-1.png.webp",
     speed: 0,
     animated: true,
     animationName: 'updown',
     alt: "Un uomo in piedi con un portatile in mano"
   },
   {
-    url: "/hero/man-2.png",
+    url: "/hero/man-2.png.webp",
     speed: 0,
     animated: true,
     animationName: 'downup',
     alt: "Un uomo che indica la finestra del browser"
   },
   {
-    url: "/hero/woman-1.png",
+    url: "/hero/woman-1.png.webp",
     speed: 0,
     animated: true,
     animationName: 'leftright',
     alt: "Una ragazza seduta con un computer portatile"
   },
   {
-    url: "/hero/html.png",
+    url: "/hero/html.png.webp",
     speed: 0.5,
     alt: "Logo di html"
   },
   {
-    url: "/hero/css.png",
+    url: "/hero/css.png.webp",
     speed: 0.1,
     alt: "Logo di css"
   },
   {
-    url: "/hero/brakets.png",
+    url: "/hero/brakets.png.webp",
     speed: 0.2,
     alt: "Parentesi html chiusa"
   },

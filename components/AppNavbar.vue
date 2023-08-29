@@ -16,7 +16,7 @@ const toggleNavbar = () => {
           format="webp"
           width="300"
           height="300"
-          src="/logo.jpeg"
+          src="/logo.jpeg.webp"
           alt="Logo di frontenders"
         />
       </figure>
