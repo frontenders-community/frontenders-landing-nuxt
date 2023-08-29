@@ -9,14 +9,10 @@ import AppSection from "../AppSection.vue";
         isMinHeight
     >
         <template v-slot:leftColumn>
-<<<<<<< HEAD
-            <nuxt-img format="webp" src="condivisione.png.webp" alt="Frontenders" />
-=======
             <img
-                src="/condivisione.png"
+                src="/condivisione.png.webp"
                 alt="Frontenders"
             />
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
         </template>
 
         <template v-slot:rightColumn>

@@ -46,7 +46,7 @@ const authors = computed(() => {
 
 <template>
   <div>
-    <AppBanner title="Hello, Frontenders" subtitle="ecco perchè abbiamo deciso di creare una community" />
+    <AppBanner title="Hello, Frontender" subtitle="ecco perchè abbiamo deciso di creare una community" />
 
     <Description />
 

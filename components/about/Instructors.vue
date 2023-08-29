@@ -38,7 +38,7 @@ const props = defineProps({
                     <font-awesome-icon :icon="['far', 'user']" size="4x" color="#535fe1" :mask="['fas', 'circle']" />
                 </div>
                 <p class="mt-4 title is-4">Vorresti essere qui?</p>
-                <p class="subtitle is-5">Scrivici per diventare formatore Fronteders</p>
+                <p class="subtitle is-5">Scrivici per collaborare con noi</p>
             </div>
         </template>
     </AppSection>

@@ -30,11 +30,7 @@ const features = [
       <img
         class="features-img"
         loading="lazy"
-<<<<<<< HEAD
-        src="about-img1.png.webp"
-=======
         src="/about-img1.png"
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
         alt="Un gruppo di persone seduti che parlano tra di loro"
       />
     </template>

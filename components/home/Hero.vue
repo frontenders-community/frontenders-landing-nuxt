@@ -1,81 +1,53 @@
 <script setup>
 const parallaxImages = [
   {
-    url: "hero/computer.png",
+    url: "hero/computer.png.webp",
     speed: 0,
     alt: "Computer"
   },
   {
-    url: "hero/sun.png",
+    url: "hero/sun.png.webp",
     speed: -0.5,
     alt: "Sole"
   },
   {
-<<<<<<< HEAD
-    url: "/hero/window.png.webp",
-=======
-    url: "hero/window.png",
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
+    url: "hero/window.png.webp",
     speed: -0.2,
     alt: "Finestra del browser"
   },
   {
-<<<<<<< HEAD
-    url: "/hero/man-1.png.webp",
-=======
-    url: "hero/man-1.png",
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
+    url: "hero/man-1.png.webp",
     speed: 0,
     animated: true,
     animationName: 'updown',
     alt: "Un uomo in piedi con un portatile in mano"
   },
   {
-<<<<<<< HEAD
-    url: "/hero/man-2.png.webp",
-=======
-    url: "hero/man-2.png",
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
+    url: "hero/man-2.png.webp",
     speed: 0,
     animated: true,
     animationName: 'downup',
     alt: "Un uomo che indica la finestra del browser"
   },
   {
-<<<<<<< HEAD
-    url: "/hero/woman-1.png.webp",
-=======
-    url: "hero/woman-1.png",
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
+    url: "hero/woman-1.png.webp",
     speed: 0,
     animated: true,
     animationName: 'leftright',
     alt: "Una ragazza seduta con un computer portatile"
   },
   {
-<<<<<<< HEAD
-    url: "/hero/html.png.webp",
-=======
-    url: "hero/html.png",
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
+    url: "hero/html.png.webp",
     speed: 0.5,
     alt: "Logo di html"
   },
   {
-<<<<<<< HEAD
-    url: "/hero/css.png.webp",
-=======
-    url: "hero/css.png",
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
+    url: "hero/css.png.webp",
     speed: 0.1,
     alt: "Logo di css"
   },
   {
-<<<<<<< HEAD
-    url: "/hero/brakets.png.webp",
-=======
-    url: "hero/brakets.png",
->>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
+    url: "hero/brakets.png.webp",
     speed: 0.2,
     alt: "Parentesi html chiusa"
   },
@@ -101,7 +73,7 @@ const applyParallax = (e) => {
         <div class="column is-6 is-flex is-flex-direction-column is-align-items-flex-start">
           <h1 class="mb-6">
             <span class="title is-1">Frontenders</span><br>
-            <span class="subtitle is-3">Non è la solita community: challenge pazzesche, sessioni di coding e tanto studio!</span>
+            <span class="subtitle is-3">La community dedicata al frontend. Challenge pazzesche, sessioni di studio e tanta passione!</span>
           </h1>
           <a href="https://discord.gg/ZdfWFBMw8z" target="_blank" class="cta button is-medium">Entra nella community</a>
         </div>
