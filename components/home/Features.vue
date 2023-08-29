@@ -30,7 +30,7 @@ const features = [
       <img
         class="features-img"
         loading="lazy"
-        src="about-img1.png"
+        src="/about-img1.png"
         alt="Un gruppo di persone seduti che parlano tra di loro"
       />
     </template>

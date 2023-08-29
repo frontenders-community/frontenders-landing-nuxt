@@ -15,7 +15,7 @@ const toggleNavbar = () => {
         <img
           width="300"
           height="300"
-          src="logo.jpeg"
+          src="/logo.jpeg"
           alt="Logo di frontenders"
         />
       </figure>

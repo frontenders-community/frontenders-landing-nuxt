@@ -10,7 +10,7 @@ import AppSection from "../AppSection.vue";
     >
         <template v-slot:leftColumn>
             <img
-                src="condivisione.png"
+                src="/condivisione.png"
                 alt="Frontenders"
             />
         </template>
