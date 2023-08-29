@@ -29,6 +29,7 @@ const features = [
     <template v-slot:leftColumn>
       <nuxt-img
         format="webp"
+        sizes="sm:100vw md:100vw lg:50vw"
         loading="lazy"
         src="about-img1.png"
         alt="Un gruppo di persone seduti che parlano tra di loro"
@@ -45,7 +46,14 @@ const features = [
       >
         <figure class="media-left">
           <span class="about-icon">
-            <nuxt-img format="webp" loading="lazy" :src="feature.icon" :alt="feature.text" />
+            <nuxt-img
+              format="webp"
+              width="50"
+              height="50"
+              loading="lazy"
+              :src="feature.icon"
+              :alt="feature.text"
+            />
           </span>
         </figure>
         <div class="media-content">

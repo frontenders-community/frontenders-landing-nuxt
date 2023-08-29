@@ -85,7 +85,7 @@ const setHoverIndex = (index) => {
 }
 
 .content {
-  height: 70px;
+  height: 80px;
   overflow-y: scroll;
 }
 
