@@ -1,53 +1,81 @@
 <script setup>
 const parallaxImages = [
   {
-    url: "/hero/computer.png.webp",
+    url: "hero/computer.png",
     speed: 0,
     alt: "Computer"
   },
   {
-    url: "/hero/sun.png.webp",
+    url: "hero/sun.png",
     speed: -0.5,
     alt: "Sole"
   },
   {
+<<<<<<< HEAD
     url: "/hero/window.png.webp",
+=======
+    url: "hero/window.png",
+>>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
     speed: -0.2,
     alt: "Finestra del browser"
   },
   {
+<<<<<<< HEAD
     url: "/hero/man-1.png.webp",
+=======
+    url: "hero/man-1.png",
+>>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
     speed: 0,
     animated: true,
     animationName: 'updown',
     alt: "Un uomo in piedi con un portatile in mano"
   },
   {
+<<<<<<< HEAD
     url: "/hero/man-2.png.webp",
+=======
+    url: "hero/man-2.png",
+>>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
     speed: 0,
     animated: true,
     animationName: 'downup',
     alt: "Un uomo che indica la finestra del browser"
   },
   {
+<<<<<<< HEAD
     url: "/hero/woman-1.png.webp",
+=======
+    url: "hero/woman-1.png",
+>>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
     speed: 0,
     animated: true,
     animationName: 'leftright',
     alt: "Una ragazza seduta con un computer portatile"
   },
   {
+<<<<<<< HEAD
     url: "/hero/html.png.webp",
+=======
+    url: "hero/html.png",
+>>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
     speed: 0.5,
     alt: "Logo di html"
   },
   {
+<<<<<<< HEAD
     url: "/hero/css.png.webp",
+=======
+    url: "hero/css.png",
+>>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
     speed: 0.1,
     alt: "Logo di css"
   },
   {
+<<<<<<< HEAD
     url: "/hero/brakets.png.webp",
+=======
+    url: "hero/brakets.png",
+>>>>>>> e9960b7bd04ff32a4acdd78cdda8fc9b196a7d9d
     speed: 0.2,
     alt: "Parentesi html chiusa"
   },
@@ -79,11 +107,10 @@ const applyParallax = (e) => {
         </div>
         <div class="column is-6 is-hidden-mobile">
           <div class="parallax-container">
-            <nuxt-img
+            <img
               v-for="(img, index) in parallaxImages" 
-              :key="index" :src="img.url"
-              format="webp"
-              quality="100"
+              :key="index"
+              :src="img.url"
               preload
               :alt="img.alt"
               class="layer"
