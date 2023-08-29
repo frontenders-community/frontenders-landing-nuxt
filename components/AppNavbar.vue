@@ -6,14 +6,18 @@ const navbarOpen = ref(false);
 const toggleNavbar = () => {
   navbarOpen.value = !navbarOpen.value;
 }
+
+const closeNavbar = () => {
+  navbarOpen.value = false;
+}
 </script>
 
 <template>
   <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <Nuxt-link
-        to="/" 
-        @click="toggleNavbar"
+        to="/"
+        @click="closeNavbar"
       >
         <figure class="image is-96x96">
           <img
