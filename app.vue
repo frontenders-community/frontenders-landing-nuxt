@@ -1,7 +1,7 @@
 <template>
   <div>
     <AppNavbar />
-    <NuxtPage />
+    <NuxtPage :key="$route.fullPath" />
     <AppFooter />
   </div>
 </template>
