@@ -18,7 +18,7 @@ const topics = [
     prefix: 'fab',
     icon: "js",
     name: "JS",
-    description: "Manipolazione del DOM, gestione dei dati, interazione utente. Sky is the limit."
+    description: "Manipolazione del DOM, gestione dei dati, interazione utente."
   },
   {
     prefix: 'fab',
@@ -50,7 +50,7 @@ const setHoverIndex = (index) => {
 <template>
   <AppSection centeredTitle hasHeader isMinHeight title="Main Topics" subtitle="La roadmap Frontend">
     <template v-slot:content>
-      <div v-for="(topic, index) in topics" :key="topic.name" class="column is-4">
+      <div v-for="(topic, index) in topics" :key="topic.name" class="column is-4-desktop is-6-tablet is-12-mobile">
         <div class="box has-text-left" @mouseover="setHoverIndex(index)" @mouseleave="setHoverIndex(null)">
           <article class="media">
             <div class="media-left">
@@ -64,7 +64,7 @@ const setHoverIndex = (index) => {
               </span>
             </div>
             <div class="media-content">
-              <div class="content">
+              <div class="content is-vcentered">
                 <p>
                   <span>{{ topic.name }}</span>
                   <br>
@@ -95,10 +95,6 @@ const setHoverIndex = (index) => {
   color: #fff;
 }
 
-.content {
-  height: 80px;
-  overflow-y: scroll;
-}
 
 .content span {
   font-weight: 700;
