@@ -12,7 +12,7 @@ const sliderOptions = {
   type: 'loop',
   arrows: false,
   autoplay: true,
-  interval: 3000,
+  interval: 10000,
   perPage: 1,
   rewind: true,
   gap: '2rem',

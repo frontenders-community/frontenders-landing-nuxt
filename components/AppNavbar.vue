@@ -72,4 +72,9 @@ const closeNavbar = () => {
 .navbar-item {
   font-size: 1.2rem;
 }
+
+.navbar-burger {
+  width: 96px;
+  height: 96px;
+}
 </style>
