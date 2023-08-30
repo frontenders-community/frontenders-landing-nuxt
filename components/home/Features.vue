@@ -68,7 +68,10 @@ const features = [
       <NuxtLink to="/about" class="mt-4 cta button is-medium">
         <span>Scopri chi siamo</span>
         <span class="icon is-small">
-          <i class="fa-solid fa-chevron-right"></i>
+          <font-awesome-icon
+            class="icon"
+            :icon="['fas', 'chevron-right']"
+          />
         </span>
       </NuxtLink>
     </template>

@@ -14,7 +14,10 @@ import AppSection from '../AppSection.vue';
       <a href="https://www.youtube.com/@frontenderscommunity/featured" target="_blank" class="mt-4 cta button is-medium">
         <span>Iscriviti al canale</span>
         <span class="icon is-small">
-          <i class="fa-solid fa-chevron-right"></i>
+          <font-awesome-icon
+            class="icon"
+            :icon="['fas', 'chevron-right']"
+          />
         </span>
       </a>
     </template>
