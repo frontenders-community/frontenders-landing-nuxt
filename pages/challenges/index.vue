@@ -25,7 +25,7 @@ useSeoMeta({
   ogImage: `${publicUrl}/favicon.ico`,
 })
 
-const { data: apiChallenges, pending, error } = await useFetch(`${apiBase}/challenges`, {
+const { data: apiChallenges, pending, error } = await useFetch(`${apiBase}/challenges?filterByFormula=state%3D%22published%22`, {
   headers: {
     Authorization: `Bearer ${apiToken}`
   }
@@ -47,30 +47,30 @@ const activeChallenges = computed(() => {
 
   if (apiChallenges.value === null) {
     newItems = [];
-  }
-
-  if (state.activeTopic === "all") {
-    newItems = apiChallenges.value.records;
   } else {
-    newItems = apiChallenges.value.records.filter(item => {
-      return item.fields.topics.find(topicId => topicId === activeTopicId.value);
-    });
+    if (state.activeTopic === "all") {
+      newItems = apiChallenges.value.records;
+    } else {
+      newItems = apiChallenges.value.records.filter(item => {
+        return item.fields.topics.find(topicId => topicId === activeTopicId.value);
+      });
+    }
+
+    if (state.activeLevel !== "normal") {
+      newItems = newItems.sort((a, b) => {
+        const levelA = a.fields.level.toLowerCase();
+        const levelB = b.fields.level.toLowerCase();
+        if (state.activeLevel === "beginner") {
+          return (LEVELS[levelA] || LEVELS.default) - (LEVELS[levelB] || LEVELS.default);
+        } else if (state.activeLevel === "advanced") {
+          return (LEVELS[levelB] || LEVELS.default) - (LEVELS[levelA] || LEVELS.default);
+        } else {
+          return Math.random() - 0.5;
+        }
+      });
+    }
   }
 
-  if (state.activeLevel !== "normal") {
-    newItems = newItems.sort((a, b) => {
-      const levelA = a.fields.level.toLowerCase();
-      const levelB = b.fields.level.toLowerCase();
-      if (state.activeLevel === "beginner") {
-        return (LEVELS[levelA] || LEVELS.default) - (LEVELS[levelB] || LEVELS.default);
-      } else if (state.activeLevel === "advanced") {
-        return (LEVELS[levelB] || LEVELS.default) - (LEVELS[levelA] || LEVELS.default);
-      } else {
-        return Math.random() - 0.5;
-      }
-    });
-  }
-  
   return newItems;
 })
 
