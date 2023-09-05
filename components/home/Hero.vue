@@ -6,11 +6,6 @@ const parallaxImages = [
     alt: "Computer"
   },
   {
-    url: "hero/sun.png.webp",
-    speed: -0.5,
-    alt: "Sole"
-  },
-  {
     url: "hero/window.png.webp",
     speed: -0.2,
     alt: "Finestra del browser"
@@ -35,6 +30,11 @@ const parallaxImages = [
     animated: true,
     animationName: 'leftright',
     alt: "Una ragazza seduta con un computer portatile"
+  },
+  {
+    url: "hero/js.png.webp",
+    speed: -0.3,
+    alt: "Logo di javascript"
   },
   {
     url: "hero/html.png.webp",
@@ -67,7 +67,7 @@ const applyParallax = (e) => {
 </script>
 
 <template>
-  <section class="jumbotron-bg jumbotron section section-diagonal is-medium" @mousemove="applyParallax">
+  <section class="jumbotron-bg jumbotron section section-diagonal-right is-medium" @mousemove="applyParallax">
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-6 is-flex is-flex-direction-column is-align-items-flex-start">
@@ -129,64 +129,4 @@ const applyParallax = (e) => {
     top: -30px;
   }
 }
-
-// .layer.animated {
-//   animation: 3.5s linear infinite;
-// }
-// 
-// .layer.animated.animation-updown {
-//   animation-name: upDown;
-//   animation-delay: .6s;
-// }
-// 
-// .layer.animated.animation-downup {
-//   animation-name: downUp;
-// }
-// 
-// .layer.animated.animation-leftright {
-//   animation-name: leftRight;
-//   animation-delay: .6s;
-// }
-// 
-// @keyframes upDown {
-//   0% {
-//     transform: translateY(-10px);
-//   }
-// 
-//   50% {
-//     transform: translateY(5px);
-//   }
-// 
-//   100% {
-//     transform: translateY(-10px);
-//   }
-// }
-// 
-// @keyframes downUp {
-//   0% {
-//     transform: translateY(8px);
-//   }
-// 
-//   50% {
-//     transform: translateY(-6px);
-//   }
-// 
-//   100% {
-//     transform: translateY(8px);
-//   }
-// }
-// 
-// @keyframes leftRight {
-//   0% {
-//     transform: translateX(8px);
-//   }
-// 
-//   50% {
-//     transform: translateX(-6px);
-//   }
-// 
-//   100% {
-//     transform: translateX(8px);
-//   }
-// }
 </style>
