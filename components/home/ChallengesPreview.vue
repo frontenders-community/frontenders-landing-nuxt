@@ -28,7 +28,10 @@ const props = defineProps({
       <NuxtLink to="/challenges?topic=all" class="cta button is-medium">
         <span>Scopri tutte le challenge</span>
         <span class="icon is-small">
-          <i class="fa-solid fa-chevron-right"></i>
+          <font-awesome-icon
+            class="icon"
+            :icon="['fas', 'chevron-right']"
+          />
         </span>
       </NuxtLink>
     </template>

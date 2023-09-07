@@ -3,34 +3,40 @@ import AppSection from '../AppSection.vue';
 
 const topics = [
   {
+    prefix: 'fab',
     icon: "html5",
     name: "HTML",
     description: "Semantica, tag e attributi non saranno più un mistero"
   },
   {
+    prefix: 'fab',
     icon: "css3",
     name: "CSS",
-    description: "Da display a flex, fino alle grid, un viaggio con stile"
+    description: "Da display a flex, fino a grid e animazioni, un viaggio con stile"
   },
   {
+    prefix: 'fab',
     icon: "js",
     name: "JS",
-    description: "Come si gestisce l'interazione dell'utente?"
+    description: "Manipolazione del DOM, gestione dei dati, interazione utente."
   },
   {
+    prefix: 'fab',
     icon: "vuejs",
     name: "Vue",
-    description: "Il framework più amato da... beh, da noi!"
+    description: "Semplice, intuitivo e indie. Questo sito web utilizza Vue!"
   },
   {
+    prefix: 'fab',
     icon: "react",
     name: "React",
-    description: "Framework di casa Meta: scopri tutti i segreti"
+    description: "Framework di casa Meta: richiede tanto studio, ma ci siamo noi!"
   },
   {
-    icon: "angular",
-    name: "Angular",
-    description: "Da mamma Google il monolitico per eccellenza"
+    prefix: 'fas',
+    icon: "cube",
+    name: "3D e oltre",
+    description: "Animazioni 2D, 3D e videogame: non ci ferma nulla!"
   },
 ]
 
@@ -44,16 +50,21 @@ const setHoverIndex = (index) => {
 <template>
   <AppSection centeredTitle hasHeader isMinHeight title="Main Topics" subtitle="La roadmap Frontend">
     <template v-slot:content>
-      <div v-for="(topic, index) in topics" :key="topic.name" class="column is-4">
+      <div v-for="(topic, index) in topics" :key="topic.name" class="column is-4-desktop is-6-tablet is-12-mobile">
         <div class="box has-text-left" @mouseover="setHoverIndex(index)" @mouseleave="setHoverIndex(null)">
           <article class="media">
             <div class="media-left">
               <span class="icon is-large">
-                <font-awesome-icon class="icon" :icon="['fab', topic.icon]" size="3x" :color="hoverIndex === index ? '#fff' :'#535fe1'" />
+                <font-awesome-icon
+                  class="icon"
+                  :icon="[topic.prefix, topic.icon]"
+                  size="3x"
+                  :color="hoverIndex === index ? '#fff' :'#535fe1'"
+                />
               </span>
             </div>
             <div class="media-content">
-              <div class="content">
+              <div class="content is-vcentered">
                 <p>
                   <span>{{ topic.name }}</span>
                   <br>
@@ -84,10 +95,6 @@ const setHoverIndex = (index) => {
   color: #fff;
 }
 
-.content {
-  height: 80px;
-  overflow-y: scroll;
-}
 
 .content span {
   font-weight: 700;

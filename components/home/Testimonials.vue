@@ -14,7 +14,7 @@ const sliderOptions = {
   type: 'loop',
   arrows: false,
   autoplay: true,
-  interval: 3000
+  interval: 10000
 }
 </script>
 
