@@ -25,6 +25,7 @@ const features = [
     isAlternate
     isTwoContentLayout
     isMinHeight
+    classes="section-diagonal-left"
   >
     <template v-slot:leftColumn>
       <img

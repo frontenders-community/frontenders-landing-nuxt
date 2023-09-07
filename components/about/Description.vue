@@ -7,6 +7,7 @@ import AppSection from "../AppSection.vue";
         isAlternate 
         isTwoContentLayout
         isMinHeight
+        classes="section-diagonal-right"
     >
         <template v-slot:leftColumn>
             <img

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
 :root {
   --primary: #def243;
@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: 'Urbanist', sans-serif;
+  font-family: "Urbanist", sans-serif;
 }
 
 /* Section */
@@ -22,12 +22,63 @@ section.alternate {
 }
 
 .jumbotron-bg {
-  background: radial-gradient(circle, rgba(245,245,245,1) 0%, rgba(222,242,67,1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(245, 245, 245, 1) 0%,
+    rgba(222, 242, 67, 1) 100%
+  );
 }
 
-.section-diagonal {
-  clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%, 0% 100%);
- } 
+
+.section-diagonal-right {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.section-diagonal-right::after {
+  content: "";
+  background-image: url("../../public/diagonal.svg");
+  transform: scaleX(-1);
+  background-size: 100% 50px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 50px;
+}
+
+
+.section-diagonal-left {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.section-diagonal-left::after {
+  content: "";
+  background-image: url("../../public/diagonal.svg");
+  background-size: 100% 50px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.section-arrow {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.section-arrow::after {
+  content: "";
+  background-image: url("../../public/arrow.svg");
+  background-size: 100% 50px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 50px;
+}
 
 .section-subtitle {
   letter-spacing: 4px;
@@ -41,7 +92,7 @@ section.alternate {
   color: #fff;
   font-weight: 700;
   border: 0;
-  transition: .3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 

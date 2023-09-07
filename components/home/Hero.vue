@@ -67,7 +67,7 @@ const applyParallax = (e) => {
 </script>
 
 <template>
-  <section class="jumbotron-bg jumbotron section section-diagonal-right is-medium" @mousemove="applyParallax">
+  <section class="jumbotron-bg jumbotron section is-medium" @mousemove="applyParallax">
     <div class="container">
       <div class="columns is-vcentered">
         <div class="column is-6 is-flex is-flex-direction-column is-align-items-flex-start">
@@ -99,6 +99,7 @@ const applyParallax = (e) => {
 .jumbotron {
   margin-top: 96px;
   overflow: hidden;
+  clip-path: polygon(0 0, 100% 0, 100% 93%, 0 100%, 0% 100%);
 }
 
 .parallax-container {

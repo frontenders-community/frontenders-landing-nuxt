@@ -31,13 +31,17 @@ const props = defineProps({
   isTwoContentLayout: {
     type: Boolean,
     required: false,
+  },
+  classes: {
+    type: String,
+    required: false
   }
 })
 </script>
 
 <template>
   <section class="section"
-    :class="{ 'has-text-centered': hasHeader && centeredTitle, 'alternate': isAlternate, 'gradient': isGradient, 'min-height': isMinHeight }">
+    :class="[{ 'has-text-centered': hasHeader && centeredTitle, 'alternate': isAlternate, 'gradient': isGradient, 'min-height': isMinHeight}, classes] ">
     <div class="container">
       <template v-if="hasHeader">
         <h6 class="section-subtitle subtitle is-6 is-uppercase">{{ subtitle }}</h6>

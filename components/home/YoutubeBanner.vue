@@ -6,6 +6,8 @@ import AppSection from '../AppSection.vue';
   <AppSection
     isAlternate
     isTwoContentLayout
+    is-min-height
+    classes="section-arrow"
   >
     <template v-slot:leftColumn>
       <h6 class="section-subtitle subtitle is-6 is-uppercase">youtube</h6>
