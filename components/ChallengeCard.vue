@@ -3,6 +3,8 @@ const props = defineProps({
   item: Object
 })
 
+const router = useRouter();
+
 const getPreviewImg = () => {
   if (props.item && props.item.fields.previewImg) {
     return props.item.fields.previewImg[0].thumbnails.large.url;
@@ -10,10 +12,15 @@ const getPreviewImg = () => {
     return ``;
   }
 }
+
+const gotoDetail = () => {
+  const slug = props.item.fields.slug;
+  router.push({ path: `/challenges/${slug}` });
+}
 </script>
 
 <template>
-  <div class="card">
+  <div class="card" @click="gotoDetail">
     <div class="card-image" v-if="item">
       <figure class="image is-4by3">
         <div class="badge-level tag is-medium">{{ item.fields.level }}</div>

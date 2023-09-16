@@ -25,7 +25,7 @@ useSeoMeta({
   ogImage: `${publicUrl}/favicon.ico`,
 })
 
-const { data: apiChallenges, pending, error } = await useFetch(`${apiBase}/challenges?filterByFormula=state%3D%22published%22`, {
+const { data: apiChallenges, pending, error } = await useFetch(`${apiBase}/challenges?filterByFormula=state%3D%22published%22&sort%5B0%5D%5Bfield%5D=order&sort%5B0%5D%5Bdirection%5D=desc`, {
   headers: {
     Authorization: `Bearer ${apiToken}`
   }
