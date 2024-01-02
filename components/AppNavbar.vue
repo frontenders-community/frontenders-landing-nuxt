@@ -61,7 +61,7 @@ const closeNavbar = () => {
 
       <div class="navbar-end">
         <div class="navbar-item">
-          <a href="https://discord.gg/427gyJrc" target="_blank" class="cta button is-medium">Unisciti a noi</a>
+          <a href="https://discord.gg/3YpWu2YRsn" target="_blank" class="cta button is-medium">Unisciti a noi</a>
         </div>
       </div>
     </div>
